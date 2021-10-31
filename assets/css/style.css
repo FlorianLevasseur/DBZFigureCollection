@@ -1,0 +1,67 @@
+html, body{
+    font-family: 'Livvic', sans-serif;
+}
+
+body {
+    background: url("../img/background.jpg") no-repeat;
+    background-attachment: fixed;
+}
+
+.logo {
+    height: 5rem;
+    width: auto;
+}
+
+.logo4stars {
+    height: 2.5rem;
+    width: auto;
+}
+
+.account {
+    color: rgba(0,0,0,0.55);
+}
+
+.account:hover {
+    color: rgba(0,0,0,0.7)
+}
+
+.logoZ {
+    height: 2rem;
+    width: auto;
+}
+
+.content {
+    border: 2px solid black;
+    margin-top: 3rem;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.actu, .upgrade {
+    text-decoration: none;
+    color: inherit;
+}
+
+.actu:hover, .upgrade:hover {
+    color: red;
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        background: white;
+    }
+
+    .content {
+        margin-top: 1rem;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    table {
+        text-align: center;
+    }
+}
