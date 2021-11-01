@@ -21,7 +21,7 @@ body {
     color: rgba(0,0,0,0.55);
 }
 
-.account:hover {
+.account:hover, .footLink:hover {
     color: rgba(0,0,0,0.7)
 }
 
@@ -40,13 +40,18 @@ th {
     vertical-align: middle;
 }
 
-.actu, .upgrade {
+.actu, .upgrade, .footLink{
     text-decoration: none;
     color: inherit;
 }
 
 .actu:hover, .upgrade:hover {
     color: red;
+}
+
+footer {
+    border-top: 1px solid black;
+    margin-top: 3rem;
 }
 
 @media screen and (max-width: 992px) {
