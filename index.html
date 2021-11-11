@@ -11,13 +11,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@100;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="#" id="myLink">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <title>DBZ Figure Collection</title>
 </head>
 
 <body>
-  <div class="container-fluid bg-white">
+  <div class="container-fluid">
     <div class="container">
       <div class="row">
         <div class="col-2 m-auto p-0">
@@ -33,7 +34,7 @@
         </div>
         <div class="d-lg-none d-block col-8"></div>
         <div class="col-2 m-auto">
-          <a class="text-decoration-none account d-flex justify-content-end" href=#">
+          <a class="text-decoration-none account d-flex justify-content-end" href="connexion.html" id="myAccount">
             <img class="logo4stars" src="assets/img/connectlogo.png" alt="Logo boule de cristal 4 étoiles">
             <p class="d-lg-block d-none m-auto ms-2">MON COMPTE</p>
           </a>
@@ -42,7 +43,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-0" id="myNav">
     <div class="container d-lg-none justify-content-end">
       <div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -72,7 +73,7 @@
             <a class="nav-link" href="#">FORUM</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">CONTACT</a>
+            <a class="nav-link" href="#">A PROPOS</a>
           </li>
         </ul>
         <div class="input-group d-lg-none">
@@ -82,9 +83,9 @@
       </div>
     </div>
   </nav>
-
-  <div class="container bg-white content pt-3 pb-3">
-    <div id="carouselExampleIndicators" class="carousel slide m-auto" data-bs-ride="carousel">
+<div class="backG pt-5 pb-5">
+  <div class="container bg-white content pt-3 pb-3" id="contentId">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade m-auto" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -119,7 +120,7 @@
     <div class="row justify-content-around m-0">
       <div class="col-lg-5">
         <table class="table table-bordered table-striped table-hover mt-4">
-          <thead class="text-black">
+          <thead>
             <tr>
               <th colspan="2">Actualités</th>
             </tr>
@@ -148,7 +149,7 @@
 
       <div class="col-lg-5">
         <table class="table table-bordered table-striped table-hover mt-4">
-          <thead class="text-black">
+          <thead>
             <tr>
               <th colspan="2">Mises à jour du site</th>
             </tr>
@@ -230,19 +231,19 @@
       </div>
     </div>
   </div>
-
+</div>
   <footer>
-    <div class="container-fluid mb-0 pt-3 pb-1 bg-white">
+    <div class="container-fluid mb-0 pt-3 pb-1">
       <div class="container">
         <div class="row text-center pb-3">
           <div class="col-lg-4 col-5 m-auto">
-            <a class="footLink" href="#">Mentions Légales</a>
+            <a class="footLink" href="#" id="foot1">Mentions Légales</a>
           </div>
           <div class="col-lg-4 col-4 m-auto">
-            <a class="footLink" href="#">Plan du Site</a>
+            <a class="footLink" href="#" id="foot2">Plan du Site</a>
           </div>
           <div class="col-lg-4 col-3 m-auto">
-            <a class="footLink" href="#">Contact</a>
+            <a class="footLink" href="#" id="foot3">Contact</a>
           </div>
         </div>
         <p class="text-center">©2021 DBZ Figure Collection | Designed by TiFlo</p>
@@ -253,6 +254,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

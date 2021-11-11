@@ -2,9 +2,9 @@ html, body{
     font-family: 'Livvic', sans-serif;
 }
 
-body {
+.backG {
     background: url("../img/background.jpg") no-repeat;
-    background-attachment: fixed;
+    background-position: fixed;
 }
 
 .logo {
@@ -17,12 +17,30 @@ body {
     width: auto;
 }
 
+
+.actu, .upgrade, .footLink, .footLinkDark{
+    text-decoration: none;
+    color: inherit;
+}
+
+.actu:hover, .upgrade:hover {
+    color: red;
+}
+
 .account {
     color: rgba(0,0,0,0.55);
 }
 
 .account:hover, .footLink:hover {
-    color: rgba(0,0,0,0.7)
+    color: rgba(0,0,0,0.75);
+}
+
+.accountDark {
+    color: rgba(255,255,255,0.55);
+}
+
+.accountDark:hover, .footLinkDark:hover{
+    color: rgba(255,255,255,0.75);
 }
 
 .logoZ {
@@ -32,31 +50,21 @@ body {
 
 .content {
     border: 2px solid black;
-    margin-top: 3rem;
 }
 
 th {
-    text-align: center;
-    vertical-align: middle;
+    text-align: center!important;
+    vertical-align: middle!important;
 }
 
-.actu, .upgrade, .footLink{
-    text-decoration: none;
-    color: inherit;
-}
-
-.actu:hover, .upgrade:hover {
-    color: red;
-}
 
 footer {
-    border-top: 1px solid black;
-    margin-top: 3rem;
+    border-top: 1px solid black;    
 }
 
 @media screen and (max-width: 992px) {
-    body {
-        background: white;
+    .backG {
+        background: none;
     }
 
     .content {
