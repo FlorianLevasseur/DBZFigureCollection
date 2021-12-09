@@ -18,10 +18,10 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid bg-white" id="myHeader">
     <div class="container">
       <div class="row">
-        <div class="col-2 m-auto p-0">
+        <div class="col-lg-2 col-6 m-auto p-0">
           <a href="index.html"><img class="logo" src="assets/img/logoDBZFC.png"
               alt="Logo Dragon Ball Z Figure Collection"></a>
         </div>
@@ -32,7 +32,7 @@
             <button type="button" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
           </div>
         </div>
-        <div class="d-lg-none d-block col-8"></div>
+        <div class="d-lg-none d-block col-4"></div>
         <div class="col-2 m-auto">
           <a class="text-decoration-none account d-flex justify-content-end" href="connexion.html" id="myAccount">
             <img class="logo4stars" src="assets/img/connectlogo.png" alt="Logo boule de cristal 4 étoiles">
@@ -61,7 +61,7 @@
       <div class="offcanvas-body container">
         <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" href=" #">RECHERCHE</a>
+            <a class="nav-link" href="search.html">RECHERCHE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MA COLLECTION</a>
@@ -83,8 +83,9 @@
       </div>
     </div>
   </nav>
-<div class="backG pt-5 pb-5">
-  <div class="container bg-white content pt-3 pb-3" id="contentId">
+
+  <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
+    <!-- <div class="row m-0"> -->
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade m-auto" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -116,6 +117,8 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <!-- </div> -->
+
 
     <div class="row justify-content-around m-0">
       <div class="col-lg-5">
@@ -231,9 +234,8 @@
       </div>
     </div>
   </div>
-</div>
   <footer>
-    <div class="container-fluid mb-0 pt-3 pb-1">
+    <div class="container-fluid mb-0 pt-3 pb-1 bg-white" id="myFooter">
       <div class="container">
         <div class="row text-center pb-3">
           <div class="col-lg-4 col-5 m-auto">

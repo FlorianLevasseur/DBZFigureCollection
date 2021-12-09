@@ -11,16 +11,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@100;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="#" id="myLink">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <title>DBZ Figure Collection</title>
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid bg-white" id="myHeader">
     <div class="container">
       <div class="row">
-        <div class="col-2 m-auto p-0">
+        <div class="col-lg-2 col-6 m-auto p-0">
           <a href="index.html"><img class="logo" src="assets/img/logoDBZFC.png"
               alt="Logo Dragon Ball Z Figure Collection"></a>
         </div>
@@ -31,9 +32,9 @@
             <button type="button" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
           </div>
         </div>
-        <div class="d-lg-none d-block col-8"></div>
+        <div class="d-lg-none d-block col-4"></div>
         <div class="col-2 m-auto">
-          <a class="text-decoration-none account d-flex justify-content-end" href="connexion.html">
+          <a class="text-decoration-none account d-flex justify-content-end" href="connexion.html" id="myAccount">
             <img class="logo4stars" src="assets/img/connectlogo.png" alt="Logo boule de cristal 4 étoiles">
             <p class="d-lg-block d-none m-auto ms-2">MON COMPTE</p>
           </a>
@@ -42,7 +43,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-0" id="myNav">
     <div class="container d-lg-none justify-content-end">
       <div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -60,7 +61,7 @@
       <div class="offcanvas-body container">
         <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" href=" #">RECHERCHE</a>
+            <a class="nav-link" href="search.html">RECHERCHE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MA COLLECTION</a>
@@ -82,79 +83,47 @@
       </div>
     </div>
   </nav>
-<div class="backG pt-5 pb-5">
-    <div class="container bg-white content pt-3 pb-3">
-        <div class="row justify-content-center mb-4">
-            <div class="col-6 text-center">
-                <p class="h3 mb-4">Connectez-vous à votre compte</p>
-                <form class="border pt-4">
-                    <div class="form-group row pb-3">
-                        <label class="col-3 form-control-label m-auto">E-mail</label>
-                        <div class="col-6">
-                            <input class="form-control">
-                        </div>
-                        <div class="col-3"></div>
-                    </div>
-                    <div class="form-group row pb-3">
-                        <label class="col-3 form-control-label m-auto">Mot de Passe</label>
-                        <div class="col-6">
-                            <input class="form-control">
-                        </div>
-                        <div class="col-3"></div>
-                    </div>
-                    <p><a href="#" class="pb-3">Mot de passe oublié ?</a></p>
-                    <button type="button"
-                        class="rounded-3 bg-danger text-white pt-2 pb-2 ps-4 pe-4 mb-3">CONNEXION</button>
-                    <hr>
-                    <p><a href="#">Pas de compte ? Créez-en un</a></p>
-                </form>
+
+  <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-6 text-center">
+        <p class="h3 mb-4">Connectez-vous à votre compte</p>
+        <form class="connectForm pt-4">
+          <div class="form-group row pb-3">
+            <label class="col-4 form-control-label m-auto">E-mail</label>
+            <div class="col-7">
+              <input class="form-control" type="mail">
             </div>
-        </div>
-        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <!-- <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div> -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/img/carousel1.jpg" class="d-block w-75 m-auto" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/carousel2.jpg" class="d-block w-75 m-auto" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/carousel3.jpg" class="d-block w-75 m-auto" alt="...">
-                </div>
+            <div class="col-1"></div>
+          </div>
+          <div class="form-group row pb-3">
+            <label class="col-4 form-control-label m-auto">Mot de Passe</label>
+            <div class="col-7">
+              <input class="form-control" type="password">
             </div>
-            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> -->
-        </div>
+            <div class="col-1"></div>
+          </div>
+          <p><a href="#" class="pb-3">Mot de passe oublié ?</a></p>
+          <button type="button" class="btn btn-danger rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mb-3">CONNEXION</button>
+          <hr>
+          <p>Pas de compte ? <a href="#" id="createAccount">Créez-en un !</a></p>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+
   <footer>
-    <div class="container-fluid mb-0 pt-3 pb-1">
+    <div class="container-fluid mb-0 pt-3 pb-1 bg-white" id="myFooter">
       <div class="container">
         <div class="row text-center pb-3">
           <div class="col-lg-4 col-5 m-auto">
-            <a class="footLink" href="#">Mentions Légales</a>
+            <a class="footLink" href="#" id="foot1">Mentions Légales</a>
           </div>
           <div class="col-lg-4 col-4 m-auto">
-            <a class="footLink" href="#">Plan du Site</a>
+            <a class="footLink" href="#" id="foot2">Plan du Site</a>
           </div>
           <div class="col-lg-4 col-3 m-auto">
-            <a class="footLink" href="#">Contact</a>
+            <a class="footLink" href="#" id="foot3">Contact</a>
           </div>
         </div>
         <p class="text-center">©2021 DBZ Figure Collection | Designed by TiFlo</p>

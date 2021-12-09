@@ -2,9 +2,17 @@ html, body{
     font-family: 'Livvic', sans-serif;
 }
 
-.backG {
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background: url("../img/background.jpg") no-repeat;
-    background-position: fixed;
+    background-attachment: fixed;
+}
+
+.darkBackColor {
+    background-color: #222;
 }
 
 .logo {
@@ -59,13 +67,25 @@ th {
 
 
 footer {
-    border-top: 1px solid black;    
+    border-top: 1px solid black;
+    margin-top: auto;    
+}
+
+.connectForm {
+    border: 1px solid rgba(0,0,0,0.20);
 }
 
 @media screen and (max-width: 992px) {
-    .backG {
+    body {
         background: none;
+        background-color: white;
     }
+
+    /* @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #222;
+        }
+    } */
 
     .content {
         margin-top: 1rem;
@@ -76,5 +96,9 @@ footer {
 
     table {
         text-align: center;
+    }
+
+    .connectForm {
+        border: none;
     }
 }
