@@ -11,6 +11,23 @@ body {
     background-attachment: fixed;
 }
 
+.redDBZColor {
+    color: #cc0921;
+}
+
+.redDBZBack {
+    background-color: #cc0921;
+}
+
+.redDBZBack:hover {
+    background-color: red;
+}
+
+.myBtn:hover {
+    background-color: #cc0921;
+    color: white;
+}
+
 .darkBackColor {
     background-color: #222;
 }
@@ -25,6 +42,9 @@ body {
     width: auto;
 }
 
+.titleBorder {
+    border: 5px double black;
+}
 
 .actu, .upgrade, .footLink, .footLinkDark{
     text-decoration: none;
@@ -32,7 +52,7 @@ body {
 }
 
 .actu:hover, .upgrade:hover {
-    color: red;
+    color: #cc0921;
 }
 
 .account {
@@ -78,15 +98,8 @@ footer {
 @media screen and (max-width: 992px) {
     body {
         background: none;
-        background-color: white;
     }
-
-    /* @media (prefers-color-scheme: dark) {
-        body {
-            background-color: #222;
-        }
-    } */
-
+    
     .content {
         margin-top: 1rem;
         border: none;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,7 +18,7 @@
   <title>DBZ Figure Collection</title>
 </head>
 
-<body>
+<body class="bg-white">
   <div class="container-fluid bg-white" id="myHeader">
     <div class="container">
       <div class="row">
@@ -25,11 +26,16 @@
           <a href="index.html"><img class="logo" src="assets/img/logoDBZFC.png"
               alt="Logo Dragon Ball Z Figure Collection"></a>
         </div>
-
-        <div class="d-lg-block d-none col-8 m-auto">
+        <div class="d-lg-block d-none col-6 m-auto">
           <div class="input-group w-75 m-auto">
             <input type="search" class="form-control" placeholder="Rechercher une figurine">
             <button type="button" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+        <div class="d-lg-block d-none col-2 m-auto">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
+            <label class="form-check-label" for="darkSwitch">Dark Mode</label>
           </div>
         </div>
         <div class="d-lg-none d-block col-4"></div>
@@ -61,10 +67,10 @@
       <div class="offcanvas-body container">
         <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active fw-bold" href="index.html">ACCUEIL</a>
+            <a class="nav-link active fw-bold" href="index.php">ACCUEIL</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="search.html">RECHERCHE</a>
+            <a class="nav-link" href="search.php">RECHERCHE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="figure.html">MA COLLECTION</a>
@@ -73,7 +79,7 @@
             <a class="nav-link" href="#">MES SOUHAITS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">A PROPOS</a>
+            <a class="nav-link" href="about.html">A PROPOS</a>
           </li>
         </ul>
         <div class="input-group d-lg-none">
@@ -85,7 +91,24 @@
   </nav>
 
   <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
+    <!-- Pour un espace de chaque coté en responsive -->
     <!-- <div class="row m-0"> -->
+    <div class="row justify-content-center">
+      <div class="col-11 titleBorder pt-3">
+        <h1 class="text-center mb-4">Bienvenue sur Dragon Ball Z Figure Collection</h1>
+        <p class="text-center h5 mb-4 resumeText">
+          Ce site vous permettra de rechercher toutes les figurines existantes des différentes séries Dragon Ball
+          (Original, Z, GT, Super,...) éditées par Banpresto/Bandaï Spirits.
+          Si vous vous inscrivez, vous pourrez également créer votre collection personnelle ainsi que la liste des
+          figurines que vous souhaitez acquérir.
+          Pour en savoir plus sur ce site, rendez-vous dans l'onglet "A PROPOS".<br>
+          Bonne visite à tous !!!
+        </p>
+      </div>
+
+    </div>
+
+    <hr class="mb-4">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade m-auto" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -119,7 +142,7 @@
     </div>
     <!-- </div> -->
 
-
+    <hr class="mt-4 mb-0">
     <div class="row justify-content-around m-0">
       <div class="col-lg-5">
         <table class="table table-bordered table-striped table-hover mt-4">
@@ -245,7 +268,7 @@
             <a class="footLink" href="#" id="foot2">Plan du Site</a>
           </div>
           <div class="col-lg-4 col-3 m-auto">
-            <a class="footLink" href="#" id="foot3">Contact</a>
+            <a class="footLink" href="contact.html" id="foot3">Contact</a>
           </div>
         </div>
         <p class="text-center">©2021 DBZ Figure Collection | Designed by TiFlo</p>

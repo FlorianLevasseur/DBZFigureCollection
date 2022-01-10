@@ -33,7 +33,7 @@
                   </div>
                   <div class="d-lg-block d-none col-2 m-auto">
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
                       <label class="form-check-label" for="darkSwitch">Dark Mode</label>
                     </div>
                   </div>
@@ -68,13 +68,13 @@
             <div class="offcanvas-body container">
                 <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">ACCUEIL</a>
+                        <a class="nav-link" href="index.php">ACCUEIL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="search.html">RECHERCHE</a>
+                        <a class="nav-link active fw-bold" href="search.php">RECHERCHE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="figure.html">MA COLLECTION</a>
+                        <a class="nav-link" href="figure.html">MA COLLECTION</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">MES SOUHAITS</a>
@@ -92,113 +92,42 @@
     </nav>
 
     <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-        <!-- <div class="row m-0 justify-content-center"> -->
-            <p class="h3 text-center">Son Goku - SMSP Last Tenkaichi Budokai BWFC - The Brush</p>
-        <!-- </div> -->
-            
-        <div class="row justify-content-center m-0 mt-5">
-            <div class="col-lg-4 text-center mb-4">
-                <img src="assets/img/11532.jpg" alt="Photo d'une figurine">
+        <p class="h3 mb-4 text-center">Recherche de figurines</p>
+        <form class="pt-4 mb-4 row">
+            <div class="col-lg-3 col-9 m-auto my-3">
+                <select class="form-select" id="inputGroupSelect01">
+                    <option selected disabled>Recherche par...</option>
+                    <option value="1">Personnage</option>
+                    <option value="2">Série</option>
+                    <option value="3">Année de sortie</option>
+                    <option value="4">Taille</option>
+                </select>
             </div>
-            <div class="col-lg-4">
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <th>Origine</th>
-                    </tr>
-                    <tr>
-                        <td>Dragon Ball Z</td>
-                    </tr>
-                    <tr>
-                        <th>Éditeur</th>
-                    </tr>
-                    <tr>
-                        <td>Bandaï Spirits</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                    <tr>
-                        <th>Série</th>
-                    </tr>
-                    <tr>
-                        <td>SMSP-BWFC</td>
-                    </tr>
-                    <tr>
-                        <th>Personnage</th>
-                    </tr>
-                    <tr>
-                        <td>Son Goku - Normal</td>
-                    </tr>
-                    <tr>
-                        <th>Taille</th>
-                    </tr>
-                    <tr>
-                        <td>30cm</td>
-                    </tr>
-                    <tr>
-                        <th>Date de sortie</th>
-                    </tr>
-                    <tr>
-                        <td>20/06/2020</td>
-                    </tr>
-                </table>
+            <div class="col-lg-3 col-9 m-auto my-3">
+                <select class="form-select" id="inputGroupSelect02">
+                    <option selected disabled>Choix...</option>
+                    <option value="1">Liste des noms</option>
+                    <option value="2">Liste des séries</option>
+                    <option value="3">Liste des années</option>
+                    <option value="4">Taille (entre ... et ...)</option>
+                </select>
             </div>
-        </div>
-
-        <div class="row justify-content-evenly m-0 mt-4">
-            <div class="col-lg-3 mb-4">
-                <p class="h4 text-center">Photos</p>
-                <div class="row justify-content-center">
-                    <div class="col-6 pb-2">
-                        <a href="assets/img/personal1.jpg"><img class="img-fluid" src="assets/img/personal1.jpg"
-                                alt="Photo de figurine"></a>
-                    </div>
-                    <div class="col-6">
-                        <a href="assets/img/personal2.jpg"><img class="img-fluid" src="assets/img/personal2.jpg"
-                                alt="Photo de figurine"></a>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-9 m-auto my-3">
+                <select class="form-select" id="inputGroupSelect03">
+                    <option selected disabled>Choix...</option>
+                    <option value="1">Formes (Transformations) (Toutes possible)</option>
+                    <option value="2">Série précise (si choix Ichiban Kuji par exemple) (Toutes possible)</option>
+                    <option value="3">Liste des mois (Tous possible)</option>
+                    <option value="4">Taille (entre ... et ...) (Toutes possible)</option>
+                </select>
             </div>
-            <div class="col-lg-3 mb-4">
-                <p class="h4 text-center">Possédée par</p>
-                <table class="table table-bordered table-hover">
-                    <tr>
-                        <td>Kame Sennin</td>
-                    </tr>
-                    <tr>
-                        <td>Gohan</td>
-                    </tr>
-                    <tr>
-                        <td>Chi-chi</td>
-                    </tr>
-                </table>
+            <div class="col-lg-3 m-auto text-center my-3">
+                <button type="button"
+                    class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">RECHERCHER</button>
             </div>
-            <div class="col-lg-3 mb-4">
-                <p class="h4 text-center">Recherchée par</p>
-                <table class="table table-bordered table-hover">
-                    <tr>
-                        <td>Vegeta</td>
-                    </tr>
-                    <tr>
-                        <td>Freezer</td>
-                    </tr>
-                    <tr>
-                        <td>Androids</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row justify-content-center m-0 mb-2">
-            <div class="col-lg-4 col-6 text-center">
-                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER
-                    A MA COLLECTION</button>
-            </div>
-            <div class="col-lg-4 col-6 text-center">
-                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER
-                    A MES SOUHAITS</button>
-            </div>
-        </div>
+        </form>
     </div>
+
     <footer>
         <div class="container-fluid mb-0 pt-3 pb-1 bg-white" id="myFooter">
             <div class="container">
