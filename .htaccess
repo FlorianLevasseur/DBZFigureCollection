@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteRule accueil views/home.php
+RewriteRule ^/?$ accueil
+RewriteRule search views/search.php
+RewriteRule figure views/figure.php
+RewriteRule about views/about.php
+RewriteRule connexion views/connexion.php
+RewriteRule account views/account.php
+RewriteRule createAccount views/createAccount.php
+RewriteRule contact views/contact.php
+RewriteRule myCollection views/myCollection.php
+RewriteRule myWishes views/myWishes.php
+RewriteRule 404 views/404.php

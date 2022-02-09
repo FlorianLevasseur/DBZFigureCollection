@@ -9,7 +9,10 @@ body {
     flex-direction: column;
     background: url("../img/background.jpg") no-repeat;
     background-attachment: fixed;
+    font-weight: 400;
 }
+
+
 
 .redDBZColor {
     color: #cc0921;
@@ -93,6 +96,11 @@ footer {
 
 .connectForm {
     border: 1px solid rgba(0,0,0,0.20);
+}
+
+.g-recaptcha {
+    margin: 0 auto;
+    width: 304px;
 }
 
 @media screen and (max-width: 992px) {
