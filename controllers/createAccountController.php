@@ -1,7 +1,7 @@
 <?php
+require_once "../controllers/verifyUserController.php";
 require_once "../models/User.php";
 
-session_start();
 if(isset($_SESSION['pseudo'])){
     header('Location: account.php');
     exit();
@@ -56,18 +56,9 @@ if(isset($_POST['submit'])){
         $password = htmlspecialchars(trim($_POST['password']));
 
         $addUserObj = new User();
-        $addUserObj->addUser($pseudo, $password, $mail, 0);
-        $_SESSION['pseudo'] = $pseudo;
-        $allUsersArray = $allUsersObj->getAllUsers();
-        foreach($allUsersArray as $user){
-            if($user['pseudo'] == $pseudo){
-                $_SESSION['id'] = $user['id'];
-                break;
-            }
-        }
-        $_SESSION['admin'] = 0;
+        $addUserObj->addUser($pseudo, password_hash($password, PASSWORD_DEFAULT), $mail, 0, 0);
         $_SESSION['create'] = "Compte créé";
-        header('Location: account.php');
+        header('Location: /');
         exit();
     }
 }

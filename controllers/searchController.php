@@ -1,7 +1,7 @@
 <?php
+require_once "../controllers/verifyUserController.php";
 require_once "../models/Figure.php";
 require_once "../models/Serie.php";
-session_start();
 
 $find = 0;
 

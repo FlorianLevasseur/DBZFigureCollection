@@ -57,13 +57,14 @@ include("header.php");
 
         <div class="row justify-content-evenly m-0 mt-4">
             <div class="col-lg-3 mb-4">
-                <p class="h4 text-center">Photos</p>
-                <div class="row justify-content-center">
-                    <div class="col-6 pb-2">
-                        <a href="assets/img/personal1.jpg"><img class="img-fluid" src="assets/img/personal1.jpg" alt="Photo de figurine"></a>
-                    </div>
-                    <div class="col-6">
-                        <a href="assets/img/personal2.jpg"><img class="img-fluid" src="assets/img/personal2.jpg" alt="Photo de figurine"></a>
+                <p class="h4 text-center">Gallerie</p>
+                <div class="text-center mt-3">
+                    <div>
+                        <?php if(!empty($_SESSION['id'])) { ?>
+                        <a href="gallery?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">ACCEDER A LA GALLERIE</a>
+                        <?php } else { ?>
+                        <p class="mt-3">Veuillez vous connecter pour avoir accès à la galerie.</p>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -88,6 +89,7 @@ include("header.php");
                 </table>
             </div>
         </div>
+        <?php if(isset($_SESSION['pseudo'])) { ?>
         <form method="POST">
             <div class="row justify-content-center m-0 mb-2">
                 <?php if ($owned == 0 && $wanted == 0) { ?>
@@ -108,8 +110,9 @@ include("header.php");
                 <?php } ?>
             </div>
         </form>
+        <?php } ?>
     <?php } else { ?>
-        <p>Cette figurine n'existe pas.</p>
+        <p class="text-center">Cette figurine n'existe pas.</p>
     <?php } ?>
     <?php if (!empty($_POST)) { ?>
         <script>

@@ -9,9 +9,9 @@ include("header.php");
       <p class="h3 mb-4">Connectez-vous à votre compte</p>
       <form method="POST" class="connectForm pt-4">
         <div class="form-group row pb-3">
-          <label for="mail" class="col-4 form-control-label m-auto">Pseudo / Mail</label>
+          <label for="mail" class="col-4 form-control-label m-auto">E-Mail</label>
           <div class="col-7">
-            <input class="form-control" type="mail" name="mail" id="mail">
+            <input class="form-control" type="text" name="mail" id="mail">
           </div>
           <div class="col-1"></div>
         </div>
@@ -31,6 +31,18 @@ include("header.php");
     </div>
   </div>
 </div>
+
+<?php if (!empty($_SESSION['accept'])) { ?>
+  <script>
+    Swal.fire({
+      text: "Désolé mais votre compte est en attente d'acceptation par un administrateur. Vous ne pouvez pas vous connecter pour l'instant !",
+      icon: 'error',
+      confirmButtonText: 'Continuer',
+      confirmButtonColor: '#cc0921'
+    })
+  </script>
+<?php $_SESSION['accept'] = "";
+} ?>
 
 <?php
 include("footer.php");

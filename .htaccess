@@ -11,4 +11,11 @@ RewriteRule createAccount views/createAccount.php
 RewriteRule contact views/contact.php
 RewriteRule myCollection views/myCollection.php
 RewriteRule myWishes views/myWishes.php
+RewriteRule adminUser views/adminUser.php
+RewriteRule modifUser views/modifUser.php
+RewriteRule createUser views/createUser.php
+RewriteRule gallery views/gallery.php
+RewriteRule adminGallery views/adminGallery.php
+RewriteRule modifGallery views/modifGallery.php
+
 RewriteRule 404 views/404.php

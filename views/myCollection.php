@@ -5,7 +5,7 @@ include("header.php");
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
     <p class="h3 mb-4 text-center">Ma Collection</p>
-    <?php if (!empty($_SESSION)) { ?>
+    <?php if (!empty($_SESSION['id'])) { ?>
         <div class="row m-0 p-0 justify-content-center">
             <?php foreach ($myFiguresArray as $figure) { ?>
                 <div class="col-lg-3 mb-3 d-flex items-stretch">
