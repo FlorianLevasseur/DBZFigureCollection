@@ -10,7 +10,7 @@ include("header.php");
     </div>
   </div>
   <div class="row justify-content-around m-0">
-    <a href="#" class="col-lg-3 btn myBtn border text-center my-2">
+    <a href="profile?id=<?= $_SESSION['id'] ?>" class="col-lg-3 btn myBtn border text-center my-2">
       <p><i class="bi bi-person h1"></i></p>
       <p class="h4">Mes infos</p>
     </a>
@@ -29,7 +29,7 @@ include("header.php");
         <p><i class="bi bi-gear h1"></i><i class="bi bi-person h1"></i></p>
         <p class="h4">Gérer Utilisateurs</p>
       </a>
-      <a class="col-lg-3 btn myBtn border text-center my-2">
+      <a href="adminFigure" class="col-lg-3 btn myBtn border text-center my-2">
         <p><i class="bi bi-gear h1"></i><i class="bi bi-table h1"></i></p>
         <p class="h4">Gérer Figurines</p>
       </a>

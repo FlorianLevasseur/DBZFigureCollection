@@ -17,5 +17,17 @@ RewriteRule createUser views/createUser.php
 RewriteRule gallery views/gallery.php
 RewriteRule adminGallery views/adminGallery.php
 RewriteRule modifGallery views/modifGallery.php
+RewriteRule adminFigure views/adminFigure.php
+RewriteRule createFigure views/createFigure.php
+RewriteRule modifFigure views/modifFigure.php
+RewriteRule createSerie views/createSerie.php
+RewriteRule addFigureSerie views/addFigureSerie.php
+RewriteRule removeFigureSerie views/removeFigureSerie.php
+RewriteRule forgotPassword views/forgotPassword.php
+RewriteRule profile views/profile.php
+RewriteRule myGallery views/myGallery.php
+RewriteRule sendMail views/sendMail.php
+RewriteRule collection views/collection.php
+RewriteRule wishes views/wishes.php
 
-RewriteRule 404 views/404.php
+ErrorDocument 404 /views/404.php

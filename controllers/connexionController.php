@@ -20,6 +20,7 @@ if (!empty($_POST)) {
                     session_start();
                     $_SESSION['pseudo'] = $user['pseudo'];
                     $_SESSION['id'] = $user['id'];
+                    $_SESSION['mail'] = $user['mail'];
                     $_SESSION['admin'] = $user['admin'];
                     $_SESSION['accepted'] = $user['accepted'];
                     $_SESSION['accept'] = "";
@@ -29,7 +30,12 @@ if (!empty($_POST)) {
                     $_SESSION['delete'] = "";
                     $_SESSION['visible'] = "";
                     $_SESSION['unknow'] = "";
-                    header('Location: account.php');
+                    $_SESSION['createSerie'] = "";
+                    $_SESSION['addSerie'] = "";
+                    $_SESSION['removeSerie'] = "";
+                    $_SESSION['changePassword'] = "";
+                    $_SESSION['contact'] = "";
+                    header('Location: account');
                     exit();
                 } else {
                     $arrayErrors['connect'] = "Compte non accepté";
@@ -37,10 +43,10 @@ if (!empty($_POST)) {
                     break;
                 }
             } else {
-                $arrayErrors['connect'] = "Pseudo / Mail ou Mot de Passe incorrect";
+                $arrayErrors['connect'] = "Mail ou Mot de Passe incorrect";
             }
         } else {
-            $arrayErrors['connect'] = "Pseudo / Mail ou Mot de Passe incorrect";
+            $arrayErrors['connect'] = "Mail ou Mot de Passe incorrect";
         }
     }
 }

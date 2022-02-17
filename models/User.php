@@ -20,6 +20,24 @@ class User {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getNbAllUsers() {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) as nb_users FROM `user`;";
+        $resultQuery = $db->query($sql);
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_users'];
+    }
+
+    public function getLimitListUsers(int $premier, int $parpage) {
+        $db = $this->dbConnect();
+        $sql = 'SELECT * FROM `user` LIMIT :premier, :parpage;';
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getAllUsersDetails() {
         $db = $this->dbConnect();
         $sql = "SELECT `id`, `pseudo`, `password`, `mail`, 
@@ -74,6 +92,16 @@ class User {
         $sql = "DELETE FROM `user` WHERE `id` = :id";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->execute();
+    }
+
+    public function setPassword(string $mail, string $password){
+        $db = $this->dbConnect();
+        $sql = "UPDATE `user` SET password = :password
+        WHERE `mail` = :mail";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $resultQuery->bindValue(":password", $password, PDO::PARAM_STR);
         $resultQuery->execute();
     }
 }

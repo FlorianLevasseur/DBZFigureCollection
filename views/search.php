@@ -41,7 +41,7 @@ include("header.php");
         </div>
     <?php } else { ?>
         <div class="row m-0 p-0 justify-content-center">
-            <div class="col-7">
+            <div class="col-lg-7">
                 <table class="table table-bordered">
                     <tbody>
                         <?php foreach ($listLimitCharacter as $figure) { ?>

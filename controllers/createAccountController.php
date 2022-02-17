@@ -3,7 +3,7 @@ require_once "../controllers/verifyUserController.php";
 require_once "../models/User.php";
 
 if(isset($_SESSION['pseudo'])){
-    header('Location: account.php');
+    header('Location: account');
     exit();
 }
 

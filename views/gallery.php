@@ -4,11 +4,12 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <p class="h3 text-center mb-4">Gallerie</p>
+    <p class="h3 text-center mb-0">Gallerie</p>
     <?php
     if (!empty($_SESSION['id'])) {
-        if (!empty($_GET['id'])) {
-            if (empty($_POST['submit'])) { ?>
+        if (!empty($_GET['id'])) { ?>
+            <p class="h3 text-center mb-4"><?= $figureDetailsArray['full_name'] ?></p>
+            <?php if (empty($_POST['submit'])) { ?>
                 <form method="POST">
                     <div class="text-center">
                         <input class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3" type="submit" id="submit" name="submit" value="AJOUTER UNE PHOTO">
@@ -48,10 +49,10 @@ include("header.php");
                 <a href="figure?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">RETOUR</a>
             </div>
         <?php } else { ?>
-            <p class="text-center">Cette figurine n'existe pas</p>
+            <p class="text-center mt-3">Cette figurine n'existe pas</p>
         <?php }
     } else { ?>
-        <p class="text-center">Veuillez vous connecter pour avoir accès à cette page</p>
+        <p class="text-center mt-3">Veuillez vous connecter pour avoir accès à cette page</p>
     <?php } ?>
 </div>
 

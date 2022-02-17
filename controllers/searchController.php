@@ -32,11 +32,11 @@ if (isset($_GET['character'])) {
             $currentPage = 1;
         }
 
-        $nbPatientsObj = new Figure();
-        $nbPatients = $nbPatientsObj->getNbAllFigures();
+        $nbFiguresObj = new Figure();
+        $nbFigures = $nbFiguresObj->getNbAllFigures();
 
         $parPage = 6;
-        $pages = ceil($nbPatients / $parPage);
+        $pages = ceil($nbFigures / $parPage);
         $premier = ($currentPage * $parPage) - $parPage;
 
         $listLimitCharacterObj = new Figure();
@@ -51,11 +51,11 @@ if (isset($_GET['character'])) {
             $currentPage = 1;
         }
 
-        $nbPatientsObj = new Figure();
-        $nbPatients = $nbPatientsObj->getNbCharacter($_GET['character']);
+        $nbFiguresObj = new Figure();
+        $nbFigures = $nbFiguresObj->getNbCharacter($_GET['character']);
 
-        $parPage = 6;
-        $pages = ceil($nbPatients / $parPage);
+        $parPage = 10;
+        $pages = ceil($nbFigures / $parPage);
         $premier = ($currentPage * $parPage) - $parPage;
 
         $listLimitCharacterObj = new Figure();

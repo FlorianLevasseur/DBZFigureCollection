@@ -44,6 +44,21 @@ if (document.getElementById("darkSwitch").checked) {
     document.body.classList.replace("bg-white", "darkBackColor")
 }
 
+fileToUpload.addEventListener("change", function () {
+	let oFReader = new FileReader();
+	oFReader.readAsDataURL(this.files[0]);
+	oFReader.onload = function (oFREvent) {
+		picture.setAttribute('src', oFREvent.target.result);
+	};
+})
+
+fileToUploadMini.addEventListener("change", function () {
+	let oFReader = new FileReader();
+	oFReader.readAsDataURL(this.files[0]);
+	oFReader.onload = function (oFREvent) {
+		pictureMini.setAttribute('src', oFREvent.target.result);
+	};
+})
 
 // document.getElementById("inputGroupSelect01").addEventListener('change', () => {
 //     document.getElementById("inputGroupSelect02").disabled = false;

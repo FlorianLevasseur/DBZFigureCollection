@@ -194,6 +194,18 @@ include("header.php");
 <?php $_SESSION['unknow'] = "";
 } ?>
 
+<?php if (!empty($_SESSION['contact'])) { ?>
+  <script>
+    Swal.fire({
+      text: "<?= $_SESSION['contact'] ?>",
+      icon: 'success',
+      confirmButtonText: 'Continuer',
+      confirmButtonColor: '#cc0921'
+    })
+  </script>
+<?php $_SESSION['contact'] = "";
+} ?>
+
 <?php
 include("footer.php");
 ?>

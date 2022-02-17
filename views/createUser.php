@@ -8,7 +8,7 @@ include("header.php");
     <?php if (isset($_SESSION['admin'])) {
         if ($_SESSION['admin'] != 0) { ?>
             <div class="row m-0 p-0 justify-content-center">
-                <div class="col-6">
+                <div class="col-lg-6">
                     <form method="POST">
                         <div>
                             <label for="pseudo">Pseudo</label>

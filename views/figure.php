@@ -11,7 +11,7 @@ include("header.php");
 
         <div class="row justify-content-center m-0 mt-5">
             <div class="col-lg-4 text-center my-auto">
-                <img class="img-fluid" src="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" alt="Photo d'une figurine">
+                <a href="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" data-lightbox="principalPicture"><img class="img-fluid" src="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" alt="Photo d'une figurine"></a>
             </div>
             <div class="col-lg-4 my-auto">
                 <table class="table table-bordered table-striped mb-0">
@@ -43,7 +43,7 @@ include("header.php");
                         <th>Taille</th>
                     </tr>
                     <tr>
-                        <td><?= $figureDetailsArray['height'] ?></td>
+                        <td><?= $figureDetailsArray['height'] ?> cm</td>
                     </tr>
                     <tr>
                         <th>Date de sortie</th>
@@ -60,10 +60,10 @@ include("header.php");
                 <p class="h4 text-center">Gallerie</p>
                 <div class="text-center mt-3">
                     <div>
-                        <?php if(!empty($_SESSION['id'])) { ?>
-                        <a href="gallery?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">ACCEDER A LA GALLERIE</a>
+                        <?php if (!empty($_SESSION['id'])) { ?>
+                            <a href="gallery?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">ACCEDER A LA GALLERIE</a>
                         <?php } else { ?>
-                        <p class="mt-3">Veuillez vous connecter pour avoir accès à la galerie.</p>
+                            <p class="mt-3">Veuillez vous connecter pour avoir accès à la galerie.</p>
                         <?php } ?>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ include("header.php");
                 <table class="table table-bordered table-hover">
                     <?php foreach ($ownedByArray as $figure) { ?>
                         <tr>
-                            <td><?= $figure['pseudo'] ?></td>
+                            <td><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -83,33 +83,33 @@ include("header.php");
                 <table class="table table-bordered table-hover">
                     <?php foreach ($wantedByArray as $figure) { ?>
                         <tr>
-                            <td><?= $figure['pseudo'] ?></td>
+                            <td><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
         </div>
-        <?php if(isset($_SESSION['pseudo'])) { ?>
-        <form method="POST">
-            <div class="row justify-content-center m-0 mb-2">
-                <?php if ($owned == 0 && $wanted == 0) { ?>
-                    <div class="col-lg-4 col-6 text-center">
-                        <button type="submit" name="addCollecSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER A MA COLLECTION</button>
-                    </div>
-                    <div class="col-lg-4 col-6 text-center">
-                        <button type="submit" name="addWishSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER A MES SOUHAITS</button>
-                    </div>
-                <?php } else if ($owned != 0) { ?>
-                    <div class="col-lg-4 col-6 text-center">
-                        <button type="submit" name="removeCollecSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">RETIRER DE MA COLLECTION</button>
-                    </div>
-                <?php } else if ($wanted != 0) { ?>
-                    <div class="col-lg-4 col-6 text-center">
-                        <button type="submit" name="removeWishSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">RETIRER DE MES SOUHAITS</button>
-                    </div>
-                <?php } ?>
-            </div>
-        </form>
+        <?php if (isset($_SESSION['pseudo'])) { ?>
+            <form method="POST">
+                <div class="row justify-content-center m-0 mb-2">
+                    <?php if ($owned == 0 && $wanted == 0) { ?>
+                        <div class="col-lg-4 col-6 text-center">
+                            <button type="submit" name="addCollecSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER A MA COLLECTION</button>
+                        </div>
+                        <div class="col-lg-4 col-6 text-center">
+                            <button type="submit" name="addWishSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER A MES SOUHAITS</button>
+                        </div>
+                    <?php } else if ($owned != 0) { ?>
+                        <div class="col-lg-4 col-6 text-center">
+                            <button type="submit" name="removeCollecSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">RETIRER DE MA COLLECTION</button>
+                        </div>
+                    <?php } else if ($wanted != 0) { ?>
+                        <div class="col-lg-4 col-6 text-center">
+                            <button type="submit" name="removeWishSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">RETIRER DE MES SOUHAITS</button>
+                        </div>
+                    <?php } ?>
+                </div>
+            </form>
         <?php } ?>
     <?php } else { ?>
         <p class="text-center">Cette figurine n'existe pas.</p>

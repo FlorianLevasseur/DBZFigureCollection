@@ -7,7 +7,7 @@ include("header.php");
     <div class="row justify-content-center mb-4">
         <div class="col-lg-6 text-center">
             <p class="h3 mb-4">Créez votre compte</p>
-            <form method="POST" class="connectForm pt-4">
+            <form method="POST" class="border border-reset pt-4">
                 <div class="form-group row pb-3">
                     <label for="pseudo" class="col-4 form-control-label m-auto">Pseudo</label>
                     <div class="col-7">

@@ -9,7 +9,7 @@ include("header.php");
         if ($_SESSION['admin'] != 0) {
             if (!empty($_GET['id'])) { ?>
                 <div class="row m-0 p-0 justify-content-center">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <form method="POST">
                             <div>
                                 <label for="pseudo">Pseudo</label>

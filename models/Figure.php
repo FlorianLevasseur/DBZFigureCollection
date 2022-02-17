@@ -27,6 +27,13 @@ class Figure {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllCompanies() {
+        $db = $this->dbConnect();
+        $sql = "SELECT * FROM company;";
+        $resultQuery = $db->query($sql);
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getOneCharacter(string $character) {
         $db = $this->dbConnect();
         $sql = "SELECT * FROM `figure` WHERE `figure`.`character` = '$character' ORDER BY `figure`.`full_name`;";
@@ -70,6 +77,17 @@ class Figure {
         return $resultQuery->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getFigureDetailsForModif(int $id) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company, GROUP_CONCAT(figure_serie.id SEPARATOR ',') as serie FROM `figure` 
+        INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
+        WHERE `figure`.`id` = $id;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getAllFigures() {
         $db = $this->dbConnect();
         $sql = "SELECT * FROM `figure`;";
@@ -106,6 +124,30 @@ class Figure {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getNbMyFigures(int $id) {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) as nb_owned FROM `owned`
+        WHERE `id_user` = :id";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->execute();
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_owned'];
+    }
+
+    public function getLimitListMyFigures(int $id, int $premier, int $parpage) {
+        $db = $this->dbConnect();
+        $sql = 'SELECT * FROM `owned` 
+        INNER JOIN `figure` on `figure`.`id` = `owned`.`id`
+        WHERE `id_user` = :id LIMIT :premier, :parpage;';
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getMyWishes(int $id) {
         $db = $this->dbConnect();
         $sql = "SELECT `figure`.`full_name`, `wanted`.`id` FROM `wanted`
@@ -113,6 +155,30 @@ class Figure {
         WHERE `id_user` = :id";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getNbMyWishes(int $id) {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) as nb_wanted FROM `wanted`
+        WHERE `id_user` = :id";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->execute();
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_wanted'];
+    }
+
+    public function getLimitListMyWishes(int $id, int $premier, int $parpage) {
+        $db = $this->dbConnect();
+        $sql = 'SELECT * FROM `wanted` 
+        INNER JOIN `figure` on `figure`.`id` = `wanted`.`id`
+        WHERE `id_user` = :id LIMIT :premier, :parpage;';
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -169,5 +235,44 @@ class Figure {
         $resultQuery->bindValue(":id_figure", $id_figure, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addFigure(int $id, string $full_name, string $origin, string $character, string $form, int $height, string $date, int $id_company) {
+        $db = $this->dbConnect();
+        $sql = "INSERT INTO figure VALUES(:id,:full_name,:origin,:character,:form,:height,:date,:id_company)";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":full_name",$full_name,PDO::PARAM_STR);
+        $resultQuery->bindValue(":origin",$origin,PDO::PARAM_STR);
+        $resultQuery->bindValue(":character",$character,PDO::PARAM_STR);
+        $resultQuery->bindValue(":form",$form,PDO::PARAM_STR);
+        $resultQuery->bindValue(":height",$height,PDO::PARAM_INT);
+        $resultQuery->bindValue(":date",$date,PDO::PARAM_STR);
+        $resultQuery->bindValue(":id_company",$id_company,PDO::PARAM_INT);
+        $resultQuery->bindValue(":id",$id,PDO::PARAM_INT);
+        $resultQuery->execute();
+    }
+
+    public function modifFigure(int $id, string $full_name, string $origin, string $character, string $form, int $height, string $date, int $id_company) {
+        $db = $this->dbConnect();
+        $sql = "UPDATE `figure` SET `full_name` = :full_name, `origin` = :origin, `character` = :character, `form` = :form, `height` = :height, `date` = :date, `id_company` = :id_company
+        WHERE `id` = :id";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":full_name",$full_name,PDO::PARAM_STR);
+        $resultQuery->bindValue(":origin",$origin,PDO::PARAM_STR);
+        $resultQuery->bindValue(":character",$character,PDO::PARAM_STR);
+        $resultQuery->bindValue(":form",$form,PDO::PARAM_STR);
+        $resultQuery->bindValue(":height",$height,PDO::PARAM_INT);
+        $resultQuery->bindValue(":date",$date,PDO::PARAM_STR);
+        $resultQuery->bindValue(":id_company",$id_company,PDO::PARAM_INT);
+        $resultQuery->bindValue(":id",$id,PDO::PARAM_INT);
+        $resultQuery->execute();
+    }
+
+    public function deleteFigure(int $id) {
+        $db = $this->dbConnect();
+        $sql = "DELETE FROM figure WHERE id = :id";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->execute();
     }
 }

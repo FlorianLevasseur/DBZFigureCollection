@@ -22,8 +22,8 @@
     <div class="container-fluid bg-white" id="myHeader">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-6 m-auto p-0">
-                    <a href="/"><img class="logo" src="assets/img/logoDBZFC.png" alt="Logo Dragon Ball Z Figure Collection"></a>
+                <div class="col-lg-2 col-6 p-0">
+                    <a href="/"><img class="logo img-fluid" src="assets/img/logoDBZFC.png" alt="Logo Dragon Ball Z Figure Collection"></a>
                 </div>
                 <div class="d-lg-block d-none col-6 m-auto">
                     <div class="input-group w-75 m-auto">
@@ -31,13 +31,12 @@
                         <button type="button" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
                     </div>
                 </div>
-                <div class="d-lg-block d-none col-2 m-auto">
+                <div class="col-2 m-auto">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
-                        <label class="form-check-label" for="darkSwitch">Dark Mode</label>
+                        <label class="form-check-label d-lg-block d-none" for="darkSwitch">Dark Mode</label>
                     </div>
                 </div>
-                <div class="d-lg-none d-block col-4"></div>
                 <div class="col-2 m-auto">
                     <a class="text-decoration-none account d-flex justify-content-end" href="connexion" id="myAccount">
                         <img class="logo4stars" src="assets/img/connectlogo.png" alt="Logo boule de cristal 4 étoiles">

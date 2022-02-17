@@ -54,6 +54,24 @@ class Personal_Picture {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getNbAllPictures() {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) as nb_pictures FROM `personal_picture`;";
+        $resultQuery = $db->query($sql);
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_pictures'];
+    }
+
+    public function getLimitListPictures(int $premier, int $parpage) {
+        $db = $this->dbConnect();
+        $sql = 'SELECT * FROM `personal_picture` LIMIT :premier, :parpage;';
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getPicture(int $id){
         $db = $this->dbConnect();
         $sql = "SELECT `personal_picture`.`picture`, `user`.`pseudo`, `figure`.`full_name`, `personal_picture`.`visible` FROM `personal_picture`
@@ -81,5 +99,14 @@ class Personal_Picture {
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
         $resultQuery->execute();
+    }
+
+    public function getUserPictures(int $id_user) {
+        $db = $this->dbConnect();
+        $sql = "SELECT * FROM `personal_picture` WHERE `id_user` = :id_user";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(":id_user", $id_user, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 }

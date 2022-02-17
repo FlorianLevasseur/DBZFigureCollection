@@ -4,16 +4,17 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <p class="h3 text-center mb-4">Détails Photo</p>
+    <p class="h3 text-center mb-0">Détails Photo</p>
     <?php if (isset($_SESSION['admin'])) {
         if ($_SESSION['admin'] != 0) {
             if (!empty($_GET['id'])) { ?>
+                <p class="h3 text-center mb-4"><?= $myPicture['picture'] ?></p>
                 <form method="POST">
                     <div class="row m-0 p-0">
-                        <div class="col-6 m-auto">
-                            <img src="../assets/uploadedPictures/<?= $myPicture['picture'] ?>" class="img-fluid" alt=" Photo d'une figurine">
+                        <div class="col-lg-6 m-auto">
+                            <img src="../assets/uploadedPictures/<?= $myPicture['picture'] ?>" class="img-fluid" alt="Photo d'une figurine">
                         </div>
-                        <div class="col-6 m-auto">
+                        <div class="col-lg-6 m-auto">
                             <p>Photo ajoutée par : <?= $myPicture['pseudo'] ?></p>
                             <p>Photo de : <?= $myPicture['full_name'] ?></p>
                             <div>
@@ -41,13 +42,13 @@ include("header.php");
                     </div>
                 </form>
             <?php } else { ?>
-                <p class="text-center">Cette photo n'existe pas</p>
+                <p class="text-center mt-3">Cette photo n'existe pas</p>
             <?php }
         } else { ?>
-            <p class="text-center">Vous n'avez pas accès à cette page.</p>
+            <p class="text-center mt-3">Vous n'avez pas accès à cette page.</p>
         <?php }
     } else { ?>
-        <p class="text-center">Vous n'avez pas accès à cette page.</p>
+        <p class="text-center mt-3">Vous n'avez pas accès à cette page.</p>
     <?php } ?>
 </div>
 
