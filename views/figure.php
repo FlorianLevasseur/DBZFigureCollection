@@ -114,7 +114,7 @@ include("header.php");
     <?php } else { ?>
         <p class="text-center">Cette figurine n'existe pas.</p>
     <?php } ?>
-    <?php if (!empty($_POST)) { ?>
+    <?php if (!empty($_POST['addCollecSubmit']) || !empty($_POST['addWishSubmit']) || !empty($_POST['removeCollecSubmit']) || !empty($_POST['removeWishSubmit'])) { ?>
         <script>
             Swal.fire({
                 text: "La figurine <?= $figureDetailsArray['full_name'] ?> a bien été <?php if (isset($_POST['addCollecSubmit']) || isset($_POST['addWishSubmit'])) { ?>ajouté à <?php } else if (isset($_POST['removeCollecSubmit']) || isset($_POST['removeWishSubmit'])) { ?>retiré de <?php } ?><?php if (isset($_POST['addCollecSubmit']) || isset($_POST['removeCollecSubmit'])) { ?>votre Collection.<?php } else if (isset($_POST['addWishSubmit']) || isset($_POST['removeWishSubmit'])) { ?>votre liste de Souhaits.<?php } ?>",

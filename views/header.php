@@ -1,3 +1,6 @@
+<?php
+require_once "../controllers/headerController.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,6 +18,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>DBZ Figure Collection</title>
 </head>
 
@@ -26,10 +30,13 @@
                     <a href="/"><img class="logo img-fluid" src="assets/img/logoDBZFC.png" alt="Logo Dragon Ball Z Figure Collection"></a>
                 </div>
                 <div class="d-lg-block d-none col-6 m-auto">
-                    <div class="input-group w-75 m-auto">
-                        <input type="search" class="form-control" placeholder="Rechercher une figurine">
-                        <button type="button" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
-                    </div>
+                    <form method="POST">
+                        <div class="input-group w-75 m-auto">
+                            <input type="text" list="res" class="form-control" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
+                            <datalist id="res"></datalist>
+                            <button type="submit" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-2 m-auto">
                     <div class="form-check form-switch">

@@ -22,6 +22,27 @@
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script src="../assets/js/lightbox-plus-jquery.js"></script>
 <script src="../assets/js/script.js"></script>
+<script type="text/javascript">
+        function getdata(){
+            var name = $('#name').val();
+            console.log($('#name').val());
+            if(name){
+                $.ajax({
+                    type: 'post',
+                    url: './getdata.php',
+                    data: {
+                        name:name,
+                    },
+                    success: function (response) {
+                        console.log($('#res').html(response));
+                        $('#res').html(response);
+                    }
+                });
+            } else {
+                $('#res').html("Entrez le nom de l'utilisateur");
+            }
+        }
+    </script>
 </body>
 
 </html>
