@@ -4,11 +4,11 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <div class="row justify-content-center mb-4">
+    <div class="row m-0 p-0 justify-content-center mb-4">
         <div class="col-lg-6 text-center">
             <p class="h3 mb-4">Créez votre compte</p>
             <form method="POST" class="border border-reset pt-4">
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="pseudo" class="col-4 form-control-label m-auto">Pseudo</label>
                     <div class="col-7">
                         <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>">
@@ -18,7 +18,7 @@ include("header.php");
                     </div>
                     <div class="col-1"></div>
                 </div>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="mail" class="col-4 form-control-label m-auto">E-mail</label>
                     <div class="col-7">
                         <input class="form-control" type="mail" name="mail" id="mail" value="<?= $_POST['mail'] ?? '' ?>">
@@ -28,7 +28,7 @@ include("header.php");
                     </div>
                     <div class="col-1"></div>
                 </div>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="password" class="col-4 form-control-label m-auto">Mot de Passe</label>
                     <div class="col-7">
                         <input class="form-control" type="password" name="password" id="password">
@@ -38,7 +38,7 @@ include("header.php");
                     </div>
                     <div class="col-1"></div>
                 </div>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="confirmPassword" class="col-4 form-control-label m-auto">Confirmez Mot de Passe</label>
                     <div class="col-7">
                         <input class="form-control" type="password" name="confirmPassword" id="confirmPassword">
@@ -48,7 +48,7 @@ include("header.php");
                     </div>
                     <div class="col-1"></div>
                 </div>
-                <div class="form-group row pb-3 justify-content-center">
+                <div class="form-group row m-0 p-0 pb-3 justify-content-center">
                     <div class="col-6 text-center">
                         <div class="g-recaptcha" data-sitekey="6Lf1mWkeAAAAAFcql27Pj22nPnif5qNQ8kEqQIFy"></div>
                         <p class="text-danger">

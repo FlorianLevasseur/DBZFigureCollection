@@ -4,12 +4,12 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <!-- <div class="row m-0 justify-content-center"> -->
+    <!-- <div class="row m-0 p-0 justify-content-center"> -->
     <?php if (!empty($figureDetailsArray)) { ?>
         <p class="h3 text-center"><?= $figureDetailsArray['full_name'] ?></p>
         <!-- </div> -->
 
-        <div class="row justify-content-center m-0 mt-5">
+        <div class="row justify-content-center m-0 p-0 mt-5">
             <div class="col-lg-4 text-center my-auto">
                 <a href="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" data-lightbox="principalPicture"><img class="img-fluid" src="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" alt="Photo d'une figurine"></a>
             </div>
@@ -55,7 +55,7 @@ include("header.php");
             </div>
         </div>
 
-        <div class="row justify-content-evenly m-0 mt-4">
+        <div class="row justify-content-evenly m-0 p-0 mt-4">
             <div class="col-lg-3 mb-4">
                 <p class="h4 text-center">Gallerie</p>
                 <div class="text-center mt-3">
@@ -91,7 +91,7 @@ include("header.php");
         </div>
         <?php if (isset($_SESSION['pseudo'])) { ?>
             <form method="POST">
-                <div class="row justify-content-center m-0 mb-2">
+                <div class="row justify-content-center m-0 p-0 mb-2">
                     <?php if ($owned == 0 && $wanted == 0) { ?>
                         <div class="col-lg-4 col-6 text-center">
                             <button type="submit" name="addCollecSubmit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">AJOUTER A MA COLLECTION</button>
@@ -114,7 +114,7 @@ include("header.php");
     <?php } else { ?>
         <p class="text-center">Cette figurine n'existe pas.</p>
     <?php } ?>
-    <?php if (!empty($_POST['addCollecSubmit']) || !empty($_POST['addWishSubmit']) || !empty($_POST['removeCollecSubmit']) || !empty($_POST['removeWishSubmit'])) { ?>
+    <?php if (!empty($_POST)) { ?>
         <script>
             Swal.fire({
                 text: "La figurine <?= $figureDetailsArray['full_name'] ?> a bien été <?php if (isset($_POST['addCollecSubmit']) || isset($_POST['addWishSubmit'])) { ?>ajouté à <?php } else if (isset($_POST['removeCollecSubmit']) || isset($_POST['removeWishSubmit'])) { ?>retiré de <?php } ?><?php if (isset($_POST['addCollecSubmit']) || isset($_POST['removeCollecSubmit'])) { ?>votre Collection.<?php } else if (isset($_POST['addWishSubmit']) || isset($_POST['removeWishSubmit'])) { ?>votre liste de Souhaits.<?php } ?>",

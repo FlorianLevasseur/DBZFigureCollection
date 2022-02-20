@@ -25,22 +25,17 @@ require_once "../controllers/headerController.php";
 <body class="bg-white">
     <div class="container-fluid bg-white" id="myHeader">
         <div class="container">
-            <div class="row">
+            <div class="row m-0 p-0">
                 <div class="col-lg-2 col-6 p-0">
                     <a href="/"><img class="logo img-fluid" src="assets/img/logoDBZFC.png" alt="Logo Dragon Ball Z Figure Collection"></a>
                 </div>
                 <div class="d-lg-block d-none col-6 m-auto">
-                    <form method="POST">
-                        <div class="input-group w-75 m-auto">
-                            <input type="text" list="res" class="form-control" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
-                            <datalist id="res"></datalist>
-                            <button type="submit" class="btn btn-secondary text-white"><i class="bi bi-search"></i></button>
-                        </div>
-                    </form>
+                    <input type="text" list="res" class="form-control shadow-none border" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
+                    <div id="res" class="bg-white text-truncate"></div>
                 </div>
                 <div class="col-2 m-auto">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
+                        <input class="form-check-input ms-0 me-2" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
                         <label class="form-check-label d-lg-block d-none" for="darkSwitch">Dark Mode</label>
                     </div>
                 </div>
@@ -86,8 +81,8 @@ require_once "../controllers/headerController.php";
                     </li>
                 </ul>
                 <div class="input-group d-lg-none">
-                    <input class="form-control" type="search" placeholder="Rechercher une figurine">
-                    <button class="btn btn-secondary text-white" type="button"><i class="bi bi-search"></i></button>
+                    <!-- <input type="text" list="res" class="form-control" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
+                    <div id="res"></div> -->
                 </div>
             </div>
         </div>

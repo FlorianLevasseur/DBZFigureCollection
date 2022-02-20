@@ -14,7 +14,7 @@ include("header.php");
             <div class="row m-0 p-0" data-masonry='{"percentPosition": true }'>
                 <?php foreach ($userPicturesArray as $picture) {
                     if ($picture['visible'] == 1) { ?>
-                        <div class="col-4">
+                        <div class="col-lg-4">
                             <div>
                                 <a href="../assets/uploadedPictures/<?= $picture['picture'] ?>" data-lightbox="allPictures"><img src="../assets/uploadedPictures/<?= $picture['picture'] ?>" class="img-fluid mb-2" alt="Photo d'une figurine"></a>
                             </div>

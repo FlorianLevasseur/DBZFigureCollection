@@ -5,8 +5,8 @@ include("header.php");
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
   <!-- Pour un espace de chaque coté en responsive -->
-  <!-- <div class="row m-0"> -->
-  <div class="row justify-content-center">
+  <!-- <div class="row m-0 p-0"> -->
+  <div class="row m-0 p-0 justify-content-center">
     <div class="col-11 titleBorder pt-3">
       <h1 class="text-center mb-4">Bienvenue sur Dragon Ball Z Figure Collection</h1>
       <p class="text-center h5 mb-4 resumeText">
@@ -51,7 +51,7 @@ include("header.php");
   <!-- </div> -->
 
   <hr class="mt-4 mb-0">
-  <div class="row justify-content-around m-0">
+  <div class="row justify-content-around m-0 p-0">
     <div class="col-lg-5">
       <table class="table table-bordered table-striped table-hover mt-4">
         <thead>

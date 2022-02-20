@@ -6,7 +6,7 @@ include("header.php");
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
     <p class="h3 mb-4 text-center">Recherche de figurines</p>
     <?php if (empty($_GET['character'])) { ?>
-        <form method="GET" class="pt-4 mb-4 row">
+        <form method="GET" class="row m-0 p-0 pt-4 mb-4">
             <div class="col-lg-3 col-9 m-auto my-3">
                 <select class="form-select" id="character" name="character">
                     <option selected disabled>--Choix du personnage --</option>

@@ -1,7 +1,7 @@
 <footer>
   <div class="container-fluid mb-0 pt-3 pb-1 bg-white" id="myFooter">
     <div class="container">
-      <div class="row text-center pb-3">
+      <div class="row m-0 p-0 text-center pb-3">
         <div class="col-lg-4 col-5 m-auto">
           <a class="footLink" href="#" id="foot1">Mentions Légales</a>
         </div>
@@ -39,7 +39,7 @@
                     }
                 });
             } else {
-                $('#res').html("Entrez le nom de l'utilisateur");
+                $('#res').html("");
             }
         }
     </script>

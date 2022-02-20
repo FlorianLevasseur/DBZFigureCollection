@@ -8,8 +8,22 @@ body {
     display: flex;
     flex-direction: column;
     background: url("../img/background.jpg") no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+#myNav {
+    position: relative;
+    z-index: 2;
+}
+
+#res {
+    position: absolute;
+    z-index: 3;
+    width: 32.8%;
 }
 
 .redDBZColor {
@@ -82,8 +96,8 @@ body {
 }
 
 th {
-    text-align: center!important;
-    vertical-align: middle!important;
+    text-align: center;
+    vertical-align: middle;
 }
 
 footer {

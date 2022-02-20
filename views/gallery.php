@@ -37,7 +37,7 @@ include("header.php");
                     $myUserObj = new Personal_Picture();
                     $myUser = $myUserObj->getUserImg($picture);
                     if ($myUser['visible'] != 0) { ?>
-                        <div class="col-4">
+                        <div class="col-lg-4">
                             <div>
                                 <a href="../assets/uploadedPictures/<?= $picture ?>" data-lightbox="allPictures" data-title="Photo de <?= $myUser['pseudo'] ?>"><img src="../assets/uploadedPictures/<?= $picture ?>" class="img-fluid mb-2" alt="Photo d'une figurine"></a>
                             </div>

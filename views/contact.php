@@ -8,7 +8,7 @@ include("header.php");
         <div class="col-lg-8 text-center">
             <p class="h3 mb-4">Contact</p>
             <form method="POST">
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="name" class="col-4 form-control-label m-auto">Nom</label>
                     <div class="col-7">
                         <input class="form-control" type="text" name="name" id="name" value="<?= $_POST['name'] ?? '' ?>">
@@ -16,7 +16,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <p class="text-danger"><?= $arrayErrors['name'] ?? '' ?></p>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="mail" class="col-4 form-control-label m-auto">E-mail</label>
                     <div class="col-7">
                         <input class="form-control" type="mail" name="mail" id="mail" value="<?= $_POST['mail'] ?? '' ?>">
@@ -24,7 +24,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <p class="text-danger"><?= $arrayErrors['mail'] ?? '' ?></p>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="subject" class="col-4 form-control-label m-auto">Sujet</label>
                     <div class="col-7">
                         <input class="form-control" type="text" name="subject" id="subject" value="<?= $_POST['subject'] ?? '' ?>">
@@ -32,7 +32,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <p class="text-danger"><?= $arrayErrors['subject'] ?? '' ?></p>
-                <div class="form-group row pb-3">
+                <div class="form-group row m-0 p-0 pb-3">
                     <label for="message" class="col-4 form-control-label mt-2">Votre message</label>
                     <div class="col-7">
                         <textarea class="form-control" name="message" id="message" rows="10" value="<?= $_POST['message'] ?? '' ?>"></textarea>
