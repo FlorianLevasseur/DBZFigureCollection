@@ -15,6 +15,21 @@ body {
     z-index: 1;
 }
 
+.swal-text {
+    font-size: 1.125rem;
+    color: rgba(0,0,0,.8);
+}
+
+.swal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.swal-button {
+    font-size : 1rem;
+    font-weight: 400;
+}
+
 #myNav {
     position: relative;
     z-index: 2;

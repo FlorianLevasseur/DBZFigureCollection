@@ -54,11 +54,13 @@ include("header.php");
 <?php if (isset($_SESSION['visible'])) {
   if ($_SESSION['visible'] === "0" || $_SESSION['visible'] == 1) { ?>
     <script>
-      Swal.fire({
+      swal({
         text: "La photo est à présent <?= $_SESSION['visible'] == 0 ? 'invisible' : 'visible' ?> !",
         icon: 'success',
-        confirmButtonText: 'Continuer',
-        confirmButtonColor: '#cc0921'
+        dangerMode: true,
+        button: {
+          text: "Continuer"
+        }
       })
     </script>
 <?php $_SESSION['visible'] = "2";
@@ -67,11 +69,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['delete'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "La photo <?= $_SESSION['delete'] ?> a bien été supprimé !",
       icon: 'success',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['delete'] = "";

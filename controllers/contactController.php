@@ -7,8 +7,8 @@ $arrayErrors = [];
 
 if (isset($_POST['submit'])) {
 
-    if (empty($_POST['name'])) {
-        $arrayErrors['name'] = "Champs non rempli";
+    if (empty($_POST['pseudo'])) {
+        $arrayErrors['pseudo'] = "Champs non rempli";
     }
 
     if (empty($_POST['mail'])) {
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (empty($arrayErrors)) {
-        $name = htmlspecialchars(trim($_POST['name']));
+        $name = htmlspecialchars(trim($_POST['pseudo']));
         $email = htmlspecialchars(trim($_POST['mail']));
         $subject = htmlspecialchars(trim($_POST['subject']));
         $message = htmlspecialchars(trim($_POST['message']));
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
         $mail->From = "$email";
         $mail->FromName = "$name";
         $mail->Sender = "$email";
-        $mail->AddReplyTo("$email", "name");
+        $mail->AddReplyTo("$email", "$name");
         $mail->Subject = "$subject";
         $mail->Body = nl2br($message);
         $mail->AddAddress('dbzfigurecollection@gmail.com');

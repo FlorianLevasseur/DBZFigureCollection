@@ -34,11 +34,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['accept'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "Désolé mais votre compte est en attente d'acceptation par un administrateur. Vous ne pouvez pas vous connecter pour l'instant !",
       icon: 'error',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['accept'] = "";
@@ -46,11 +48,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['changePassword'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "Un nouveau mot de passe a bien été envoyé à votre adresse mail ! Merci d'utiliser ce dernier pour vous connecter !",
       icon: 'success',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['changePassword'] = "";

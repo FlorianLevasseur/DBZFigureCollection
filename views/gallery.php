@@ -58,11 +58,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['upload'])) { ?>
     <script>
-        Swal.fire({
+        swal({
             text: "Votre photo a bien été uploadée et est en attente de confirmation par un administrateur ! Elle sera visible uniquement après confirmation !",
             icon: 'success',
-            confirmButtonText: 'Continuer',
-            confirmButtonColor: '#cc0921'
+            dangerMode: true,
+            button: {
+                text: "Continuer"
+            }
         })
     </script>
 <?php $_SESSION['upload'] = "";

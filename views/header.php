@@ -16,7 +16,8 @@ require_once "../controllers/headerController.php";
     <link href="../assets/css/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" href="#" id="myLink">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>DBZ Figure Collection</title>
@@ -33,13 +34,13 @@ require_once "../controllers/headerController.php";
                     <input type="text" list="res" class="form-control shadow-none border" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
                     <div id="res" class="bg-white text-truncate"></div>
                 </div>
-                <div class="col-2 m-auto">
+                <div class="col-lg-2 col-3 m-auto">
                     <div class="form-check form-switch">
                         <input class="form-check-input ms-0 me-2" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
                         <label class="form-check-label d-lg-block d-none" for="darkSwitch">Dark Mode</label>
                     </div>
                 </div>
-                <div class="col-2 m-auto">
+                <div class="col-lg-2 col-3 m-auto">
                     <a class="text-decoration-none account d-flex justify-content-end" href="connexion" id="myAccount">
                         <img class="logo4stars" src="assets/img/connectlogo.png" alt="Logo boule de cristal 4 étoiles">
                         <p class="d-lg-block d-none m-auto ms-2"><?= isset($_SESSION['pseudo']) ? strtoupper($_SESSION['pseudo']) : "MON COMPTE" ?></p>
@@ -80,7 +81,7 @@ require_once "../controllers/headerController.php";
                         <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], "about") ? "active fw-bold" : '' ?>" href="about">A PROPOS</a>
                     </li>
                 </ul>
-                <div class="input-group d-lg-none">
+                <div class="input-group d-lg-none" aria-hidden="true">
                     <!-- <input type="text" list="res" class="form-control" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
                     <div id="res"></div> -->
                 </div>

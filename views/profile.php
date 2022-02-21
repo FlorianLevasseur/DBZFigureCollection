@@ -71,11 +71,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['changePassword'])) { ?>
     <script>
-        Swal.fire({
+        swal({
             text: '<?= $_SESSION['changePassword'] ?>',
             icon: 'success',
-            confirmButtonText: 'Continuer',
-            confirmButtonColor: '#cc0921'
+            dangerMode: true,
+            button: {
+                text: "Continuer"
+            }
         })
     </script>
 <?php $_SESSION['changePassword'] = "";

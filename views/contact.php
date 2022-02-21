@@ -11,7 +11,7 @@ include("header.php");
                 <div class="form-group row m-0 p-0 pb-3">
                     <label for="name" class="col-4 form-control-label m-auto">Nom</label>
                     <div class="col-7">
-                        <input class="form-control" type="text" name="name" id="name" value="<?= $_POST['name'] ?? '' ?>">
+                        <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $_POST['name'] ?? '' ?>">
                     </div>
                     <div class="col-1"></div>
                 </div>

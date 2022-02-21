@@ -111,11 +111,11 @@ include("header.php");
                             <div>
                                 <label for="serie">Série(s)</label>
                             </div>
-                            
-                            <?php foreach($allFigureSeries as $serie) { ?>
+
+                            <?php foreach ($allFigureSeries as $serie) { ?>
                                 <p class="mb-1"><?= $serie['serie'] ?></p>
                             <?php } ?>
-                           
+
                             <div class="g-recaptcha" data-sitekey="6Lf1mWkeAAAAAFcql27Pj22nPnif5qNQ8kEqQIFy"></div>
                             <p class="text-danger text-center">
                                 <?= $arrayErrors['captcha'] ?? '' ?>
@@ -163,11 +163,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['addSerie'])) { ?>
     <script>
-        Swal.fire({
+        swal({
             text: "La Série <?= $_SESSION['addSerie'] ?> a bien été ajoutée !",
             icon: 'success',
-            confirmButtonText: 'Continuer',
-            confirmButtonColor: '#cc0921'
+            dangerMode: true,
+            button: {
+                text: "Continuer"
+            }
         })
     </script>
 <?php $_SESSION['addSerie'] = "";
@@ -175,11 +177,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['removeSerie'])) { ?>
     <script>
-        Swal.fire({
+        swal({
             text: "La Série <?= $_SESSION['removeSerie'] ?> a bien été retirée !",
             icon: 'success',
-            confirmButtonText: 'Continuer',
-            confirmButtonColor: '#cc0921'
+            dangerMode: true,
+            button: {
+                text: "Continuer"
+            }
         })
     </script>
 <?php $_SESSION['removeSerie'] = "";

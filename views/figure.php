@@ -8,7 +8,13 @@ include("header.php");
     <?php if (!empty($figureDetailsArray)) { ?>
         <p class="h3 text-center"><?= $figureDetailsArray['full_name'] ?></p>
         <!-- </div> -->
-
+        <?php if (isset($_SESSION['admin'])) {
+            if ($_SESSION['admin'] != 0) { ?>
+                <div class="text-center">
+                    <a href="modifFigure?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3 mb-3">MODIFIER FIGURINE</a>
+                </div>
+        <?php }
+        } ?>
         <div class="row justify-content-center m-0 p-0 mt-5">
             <div class="col-lg-4 text-center my-auto">
                 <a href="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" data-lightbox="principalPicture"><img class="img-fluid" src="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" alt="Photo d'une figurine"></a>
@@ -116,11 +122,13 @@ include("header.php");
     <?php } ?>
     <?php if (!empty($_POST)) { ?>
         <script>
-            Swal.fire({
+            swal({
                 text: "La figurine <?= $figureDetailsArray['full_name'] ?> a bien été <?php if (isset($_POST['addCollecSubmit']) || isset($_POST['addWishSubmit'])) { ?>ajouté à <?php } else if (isset($_POST['removeCollecSubmit']) || isset($_POST['removeWishSubmit'])) { ?>retiré de <?php } ?><?php if (isset($_POST['addCollecSubmit']) || isset($_POST['removeCollecSubmit'])) { ?>votre Collection.<?php } else if (isset($_POST['addWishSubmit']) || isset($_POST['removeWishSubmit'])) { ?>votre liste de Souhaits.<?php } ?>",
                 icon: 'success',
-                confirmButtonText: 'Continuer',
-                confirmButtonColor: '#cc0921'
+                dangerMode: true,
+                button: {
+                    text: "Continuer"
+                }
             })
         </script>
     <?php } ?>

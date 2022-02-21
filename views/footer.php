@@ -25,7 +25,6 @@
 <script type="text/javascript">
         function getdata(){
             var name = $('#name').val();
-            console.log($('#name').val());
             if(name){
                 $.ajax({
                     type: 'post',
@@ -34,7 +33,6 @@
                         name:name,
                     },
                     success: function (response) {
-                        console.log($('#res').html(response));
                         $('#res').html(response);
                     }
                 });

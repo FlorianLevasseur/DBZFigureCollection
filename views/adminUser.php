@@ -60,11 +60,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['modif'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "L'utilisateur <?= $_SESSION['modif'] ?> a bien été modifié !",
       icon: 'success',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['modif'] = "";
@@ -72,11 +74,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['delete'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "L'utilisateur <?= $_SESSION['delete'] ?> a bien été supprimé !",
       icon: 'success',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['delete'] = "";
@@ -84,11 +88,13 @@ include("header.php");
 
 <?php if (!empty($_SESSION['create'])) { ?>
   <script>
-    Swal.fire({
+    swal({
       text: "L'utilisateur <?= $_SESSION['create'] ?> a bien été créé !",
       icon: 'success',
-      confirmButtonText: 'Continuer',
-      confirmButtonColor: '#cc0921'
+      dangerMode: true,
+      button: {
+        text: "Continuer"
+      }
     })
   </script>
 <?php $_SESSION['create'] = "";
