@@ -1,5 +1,5 @@
 <?php
-require_once "../models/Figure.php";
+require_once "../controllers/verifyUserController.php";
 
 $allFigures = new Figure();
 $allFiguresArray = $allFigures->getAllFigures();

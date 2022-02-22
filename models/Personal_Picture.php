@@ -1,17 +1,5 @@
 <?php
-class Personal_Picture {
-    private string $_dbname = 'dbz';
-    private string $_user = 'dbz';
-    private string $_password = 'dbz';
-
-    private function dbConnect() {
-        try {
-            $pdo = new PDO("mysql:host=localhost;dbname=$this->_dbname;charset=utf8", $this->_user, $this->_password);
-            return $pdo;
-        } catch (PDOException $e) {
-            die("Erreur : $e->getMessage()");
-        }
-    }
+class Personal_Picture extends Database{
 
     public function uploadImg(string $picture, int $id_user, int $id_figure, int $visible) {
         $db = $this->dbConnect();

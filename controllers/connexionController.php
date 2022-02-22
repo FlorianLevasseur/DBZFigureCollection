@@ -1,11 +1,10 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/User.php";
+
 if (!empty($_SESSION['pseudo'])) {
     header('Location: account');
     exit();
 }
-
 
 $arrayErrors = [];
 

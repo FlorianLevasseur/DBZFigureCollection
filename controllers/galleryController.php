@@ -1,7 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/Figure.php";
-require_once "../models/Personal_Picture.php";
 
 if (!empty($_GET['id'])) {
     $allFiguresObj = new Figure();

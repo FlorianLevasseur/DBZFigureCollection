@@ -1,6 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/User.php";
 
 $arrayErrors = [];
 $alreadyPseudo = 0;

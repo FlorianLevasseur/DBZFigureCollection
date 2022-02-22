@@ -1,6 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/Serie.php";
 
 $arrayErrors = [];
 $alreadySerie = 0;

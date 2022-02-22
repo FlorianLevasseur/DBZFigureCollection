@@ -1,7 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/User.php";
-require_once "../models/Personal_Picture.php";
 
 if(!isset($_GET['id'])){
     $_GET['id'] = 0;

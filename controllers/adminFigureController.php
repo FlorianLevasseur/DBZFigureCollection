@@ -1,6 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/Figure.php";
 
 if (isset($_SESSION['admin'])) {
     if ($_SESSION['admin'] != 0) {

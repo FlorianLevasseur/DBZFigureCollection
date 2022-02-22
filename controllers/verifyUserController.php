@@ -1,5 +1,11 @@
 <?php 
+require_once "../config.php";
+require_once "../models/Database.php";
 require_once "../models/User.php";
+require_once "../models/Figure.php";
+require_once "../models/Personal_Picture.php";
+require_once "../models/Serie.php";
+require_once '../PHPMailer/PHPMailerAutoload.php';
 session_start();
 
 $find = 0;

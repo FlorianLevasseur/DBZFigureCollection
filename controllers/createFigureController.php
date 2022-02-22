@@ -1,6 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/Figure.php";
 
 $arrayErrors = [];
 $alreadyFullName = 0;

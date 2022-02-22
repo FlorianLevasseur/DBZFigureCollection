@@ -1,6 +1,4 @@
 <?php
-
-require_once '../PHPMailer/PHPMailerAutoload.php';
 require_once "../controllers/verifyUserController.php";
 
 $arrayErrors = [];
@@ -42,7 +40,7 @@ if (isset($_POST['submit'])) {
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 465;
         $mail->Username = 'dbzfigurecollection@gmail.com';
-        $mail->Password = 'DBZFigure76';
+        $mail->Password = MAILPASSWORD;
         $mail->CharSet = 'UTF-8';
         $mail->IsHTML(true);
         $mail->From = "$email";

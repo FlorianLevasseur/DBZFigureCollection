@@ -1,6 +1,5 @@
 <?php
 require_once "../controllers/verifyUserController.php";
-require_once "../models/Figure.php";
 
 $owned = 0;
 $wanted = 0;

@@ -1,9 +1,6 @@
 <?php
-
-require_once '../PHPMailer/PHPMailerAutoload.php';
-
 require_once "../controllers/verifyUserController.php";
-require_once "../models/User.php";
+
 if (!empty($_SESSION['pseudo'])) {
     header('Location: account');
     exit();
@@ -33,7 +30,7 @@ if (isset($_POST['submit'])) {
                 $mail->Host = 'smtp.gmail.com';
                 $mail->Port = 465;
                 $mail->Username = 'dbzfigurecollection@gmail.com';
-                $mail->Password = 'DBZFigure76';
+                $mail->Password = MAILPASSWORD;
                 $mail->CharSet = 'UTF-8';
                 $mail->IsHTML(true);
                 $mail->From = "dbzfigurecollection@gmail.com";
