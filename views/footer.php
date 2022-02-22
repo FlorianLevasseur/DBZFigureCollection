@@ -6,7 +6,7 @@
           <a class="footLink" href="#" id="foot1">Mentions Légales</a>
         </div>
         <div class="col-lg-4 col-4 m-auto">
-          <a class="footLink" href="#" id="foot2">Plan du Site</a>
+          <a class="footLink" href="#" id="foot2">Conditions Générales d'Utilisation</a>
         </div>
         <div class="col-lg-4 col-3 m-auto">
           <a class="footLink" href="contact" id="foot3">Contact</a>

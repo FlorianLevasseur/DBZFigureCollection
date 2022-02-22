@@ -35,7 +35,7 @@ if (isset($_GET['character'])) {
         $nbFiguresObj = new Figure();
         $nbFigures = $nbFiguresObj->getNbAllFigures();
 
-        $parPage = 6;
+        $parPage = 10;
         $pages = ceil($nbFigures / $parPage);
         $premier = ($currentPage * $parPage) - $parPage;
 
