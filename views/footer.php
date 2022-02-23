@@ -23,24 +23,24 @@
 <script src="../assets/js/lightbox-plus-jquery.js"></script>
 <script src="../assets/js/script.js"></script>
 <script type="text/javascript">
-        function getdata(){
-            var name = $('#name').val();
-            if(name){
-                $.ajax({
-                    type: 'post',
-                    url: './getdata.php',
-                    data: {
-                        name:name,
-                    },
-                    success: function (response) {
-                        $('#res').html(response);
-                    }
-                });
-            } else {
-                $('#res').html("");
-            }
+  function getdata() {
+    var name = $('#name').val();
+    if (name) {
+      $.ajax({
+        type: 'post',
+        url: './getdata.php',
+        data: {
+          name: name,
+        },
+        success: function(response) {
+          $('#res').html(response);
         }
-    </script>
+      });
+    } else {
+      $('#res').html("");
+    }
+  }
+</script>
 </body>
 
 </html>

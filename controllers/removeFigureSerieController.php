@@ -11,18 +11,14 @@ if (isset($_SESSION['admin'])) {
             foreach ($allFiguresArray as $figure) {
                 if ($figure['id'] == $_GET['id']) {
                     $figureDetailsObj = new Figure();
-                    $figureDetailsArray = $figureDetailsObj->getFigureDetailsForModif($_GET['id']);
+                    $figureInfos = $figureDetailsObj->getFigureDetailsForModif(intval($_GET['id']));
                     break;
                 } else {
-                    $figureDetailsArray = [];
+                    $figureInfos = [];
                 }
             }
-            if (!empty($figureDetailsArray)) {
-                $oneFigureObj = new Figure();
-                $figureInfos = $oneFigureObj->getFigureDetailsForModif(intval($_GET['id']));
-            } else {
+            if (empty($figureInfos)) {
                 $_GET['id'] = 0;
-                $figureInfos = [];
             }
         } else {
             $_GET['id'] = 0;

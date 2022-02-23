@@ -20,7 +20,7 @@ include("header.php");
                         <tr class="align-middle">
                             <td width="5%" class="text-center"><img src="../assets/pictures/<?= $figure['id'] ?>-mini.jpg" alt="Image miniature de la figurine"></td>
                             <td width="85%"><a class="text-decoration-none text-reset" href="figure?id=<?= $figure['id'] ?>"><?= $figure['full_name'] ?></a></td>
-                            <td width="10%" class="text-center"><a href="modifFigure?id=<?= $figure['id'] ?>" class="btn btn-secondary">Modifier</a></td>
+                            <td width="10%" class="text-center"><a href="modifFigure?id=<?= $figure['id'] ?>"><i class="bi bi-table h3"></i></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -58,6 +58,7 @@ include("header.php");
 <?php if (!empty($_SESSION['modif'])) { ?>
     <script>
         swal({
+            title: "Figurine modifiée !",
             text: "La Figurine <?= $_SESSION['modif'] ?> a bien été modifiée !",
             icon: 'success',
             dangerMode: true,
@@ -72,6 +73,7 @@ include("header.php");
 <?php if (!empty($_SESSION['delete'])) { ?>
     <script>
         swal({
+            title: "Figurine supprimée !",
             text: "La Figurine <?= $_SESSION['delete'] ?> a bien été supprimée !",
             icon: 'success',
             dangerMode: true,
@@ -86,7 +88,8 @@ include("header.php");
 <?php if (!empty($_SESSION['create'])) { ?>
     <script>
         swal({
-            text: "La Figurine <?= $_SESSION['create'] ?> a bien été créé !",
+            title: "Figurine créée !",
+            text: "La Figurine <?= $_SESSION['create'] ?> a bien été créée !",
             icon: 'success',
             dangerMode: true,
             button: {
@@ -100,6 +103,7 @@ include("header.php");
 <?php if (!empty($_SESSION['createSerie'])) { ?>
     <script>
         swal({
+            title: "Série créée !",
             text: "La Série <?= $_SESSION['create'] ?> a bien été créé !",
             icon: 'success',
             dangerMode: true,

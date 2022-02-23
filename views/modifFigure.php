@@ -164,6 +164,7 @@ include("header.php");
 <?php if (!empty($_SESSION['addSerie'])) { ?>
     <script>
         swal({
+            title: "Série ajoutée !",
             text: "La Série <?= $_SESSION['addSerie'] ?> a bien été ajoutée !",
             icon: 'success',
             dangerMode: true,
@@ -178,6 +179,7 @@ include("header.php");
 <?php if (!empty($_SESSION['removeSerie'])) { ?>
     <script>
         swal({
+            title: "Série retirée",
             text: "La Série <?= $_SESSION['removeSerie'] ?> a bien été retirée !",
             icon: 'success',
             dangerMode: true,

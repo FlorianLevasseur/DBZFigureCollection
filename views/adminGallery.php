@@ -19,8 +19,8 @@ include("header.php");
           <?php foreach ($allPicturesArray as $picture) { ?>
             <tr>
               <td><?= $picture['picture'] ?></td>
-              <td><?= $picture['visible'] ?></td>
-              <td><a href="modifGallery?id=<?= $picture['id'] ?>" class="btn btn-secondary">Voir Photo</a>
+              <td class="text-center"><?= $picture['visible'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+              <td class="text-center"><a href="modifGallery?id=<?= $picture['id'] ?>"><i class="bi bi-image h3"></i></a>
             </tr>
           <?php } ?>
         </tbody>
@@ -55,6 +55,7 @@ include("header.php");
   if ($_SESSION['visible'] === "0" || $_SESSION['visible'] == 1) { ?>
     <script>
       swal({
+        title: "Photo modifiée !",
         text: "La photo est à présent <?= $_SESSION['visible'] == 0 ? 'invisible' : 'visible' ?> !",
         icon: 'success',
         dangerMode: true,
@@ -70,6 +71,7 @@ include("header.php");
 <?php if (!empty($_SESSION['delete'])) { ?>
   <script>
     swal({
+      title: "Photo supprimée !",
       text: "La photo <?= $_SESSION['delete'] ?> a bien été supprimé !",
       icon: 'success',
       dangerMode: true,

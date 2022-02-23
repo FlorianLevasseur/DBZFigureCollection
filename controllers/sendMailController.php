@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
         $mail->Sender = $_SESSION['mail'];
         $mail->AddReplyTo($_SESSION['mail'], $_SESSION['pseudo']);
         $mail->Subject = "$subject";
-        $mail->Body = nl2br($message) . nl2br("\n\nCe message vous a été envoyé par " . $_SESSION['pseudo'] . "via l'adresse mail : " . $_SESSION['mail'] . ".\nVous pouvez y répondre directement en répondant à ce mail.");
+        $mail->Body = nl2br($message) . nl2br("\n\nCe message vous a été envoyé par " . $_SESSION['pseudo'] . " via l'adresse mail : " . $_SESSION['mail'] . ".\nVous pouvez y répondre directement en répondant à ce mail.");
         $mail->AddAddress($userInfos['mail']);
 
 

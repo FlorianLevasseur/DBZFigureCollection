@@ -9,18 +9,14 @@ if (isset($_SESSION['admin'])) {
             foreach ($allUsersArray as $user) {
                 if ($user['id'] == $_GET['id']) {
                     $userDetailsObj = new User();
-                    $userDetailsArray = $userDetailsObj->getUser($_GET['id']);
+                    $userInfos = $userDetailsObj->getUser(intval($_GET['id']));
                     break;
                 } else {
-                    $userDetailsArray = [];
+                    $userInfos = [];
                 }
             }
-            if (!empty($userDetailsArray)) {
-                $oneUserObj = new User();
-                $userInfos = $oneUserObj->getUser(intval($_GET['id']));
-            } else {
+            if (empty($userInfos)) {
                 $_GET['id'] = 0;
-                $userInfos = [];
             }
         } else {
             $_GET['id'] = 0;

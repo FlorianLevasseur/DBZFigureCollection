@@ -1,5 +1,6 @@
 <?php
 require_once "../controllers/verifyUserController.php";
+
 if(!isset($_SESSION['pseudo'])){
     header('Location: connexion');
     exit();

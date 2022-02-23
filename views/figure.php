@@ -123,6 +123,7 @@ include("header.php");
     <?php if (!empty($_POST)) { ?>
         <script>
             swal({
+                title: "Figurine <?php if (isset($_POST['addCollecSubmit']) || isset($_POST['addWishSubmit'])) { ?>ajoutée <?php } else if (isset($_POST['removeCollecSubmit']) || isset($_POST['removeWishSubmit'])) { ?>retirée <?php } ?>!",
                 text: "La figurine <?= $figureDetailsArray['full_name'] ?> a bien été <?php if (isset($_POST['addCollecSubmit']) || isset($_POST['addWishSubmit'])) { ?>ajouté à <?php } else if (isset($_POST['removeCollecSubmit']) || isset($_POST['removeWishSubmit'])) { ?>retiré de <?php } ?><?php if (isset($_POST['addCollecSubmit']) || isset($_POST['removeCollecSubmit'])) { ?>votre Collection.<?php } else if (isset($_POST['addWishSubmit']) || isset($_POST['removeWishSubmit'])) { ?>votre liste de Souhaits.<?php } ?>",
                 icon: 'success',
                 dangerMode: true,

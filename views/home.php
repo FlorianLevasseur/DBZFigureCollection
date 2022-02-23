@@ -159,6 +159,7 @@ include("header.php");
 <?php if (!empty($_SESSION['delete'])) { ?>
   <script>
     swal({
+      title: "Compte supprimé !",
       text: "Votre compte a bien été supprimé !",
       icon: 'success',
       dangerMode: true,
@@ -174,6 +175,7 @@ include("header.php");
 <?php if (!empty($_SESSION['create'])) { ?>
   <script>
     swal({
+      title: "Compte créé !",
       text: "Votre compte à bien été créé et est en attente de confirmation par un administrateur ! Veuillez attendre que votre compté soit accepté !",
       icon: 'success',
       dangerMode: true,
@@ -188,6 +190,7 @@ include("header.php");
 <?php if (!empty($_SESSION['unknow'])) { ?>
   <script>
     swal({
+      title: "Compte inconnu !",
       text: "Votre compte est inconnu dans la base de données. Il se pourrait qu'il ait été supprimé par un administrateur. Veuillez utiliser le formulaire de contact pour en savoir d'avantage.",
       icon: 'error',
       dangerMode: true,
@@ -202,6 +205,7 @@ include("header.php");
 <?php if (!empty($_SESSION['contact'])) { ?>
   <script>
     swal({
+      title: "Mail envoyé !",
       text: "<?= $_SESSION['contact'] ?>",
       icon: 'success',
       dangerMode: true,

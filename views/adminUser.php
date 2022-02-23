@@ -7,7 +7,7 @@ include("header.php");
   <p class="h3 text-center mb-4">Gérer Utilisateurs</p>
   <?php if (isset($_SESSION['admin'])) {
     if ($_SESSION['admin'] != 0) { ?>
-      <table class="table table-bordered">
+      <table class="table table-bordered align-middle">
         <thead>
           <tr>
             <th scope="col">Pseudo</th>
@@ -22,9 +22,9 @@ include("header.php");
             <tr>
               <td><?= $user['pseudo'] ?></td>
               <td><?= $user['mail'] ?></td>
-              <td><?= $user['admin'] ?></td>
-              <td><?= $user['accepted'] ?></td>
-              <td><a href="modifUser?id=<?= $user['id'] ?>" class="btn btn-secondary">Modifier</a>
+              <td class="text-center"><?= $user['admin'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+              <td class="text-center"><?= $user['accepted'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+              <td class="text-center"><a href="modifUser?id=<?= $user['id'] ?>"><i class="bi bi-person-circle h3"></i></a>
             </tr>
           <?php } ?>
         </tbody>
@@ -61,6 +61,7 @@ include("header.php");
 <?php if (!empty($_SESSION['modif'])) { ?>
   <script>
     swal({
+      title: "Utilisateur modifié !",
       text: "L'utilisateur <?= $_SESSION['modif'] ?> a bien été modifié !",
       icon: 'success',
       dangerMode: true,
@@ -75,6 +76,7 @@ include("header.php");
 <?php if (!empty($_SESSION['delete'])) { ?>
   <script>
     swal({
+      title: "Utilisateur supprimé !",
       text: "L'utilisateur <?= $_SESSION['delete'] ?> a bien été supprimé !",
       icon: 'success',
       dangerMode: true,
@@ -89,6 +91,7 @@ include("header.php");
 <?php if (!empty($_SESSION['create'])) { ?>
   <script>
     swal({
+      title: "Utilisateur créé !",
       text: "L'utilisateur <?= $_SESSION['create'] ?> a bien été créé !",
       icon: 'success',
       dangerMode: true,

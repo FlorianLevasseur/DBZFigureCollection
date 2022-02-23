@@ -35,6 +35,7 @@ include("header.php");
 <?php if (!empty($_SESSION['accept'])) { ?>
   <script>
     swal({
+      title: "Compte en attente !",
       text: "Désolé mais votre compte est en attente d'acceptation par un administrateur. Vous ne pouvez pas vous connecter pour l'instant !",
       icon: 'error',
       dangerMode: true,
@@ -49,6 +50,7 @@ include("header.php");
 <?php if (!empty($_SESSION['changePassword'])) { ?>
   <script>
     swal({
+      title: "Mot de passe modifié !",
       text: "Un nouveau mot de passe a bien été envoyé à votre adresse mail ! Merci d'utiliser ce dernier pour vous connecter !",
       icon: 'success',
       dangerMode: true,

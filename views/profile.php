@@ -72,6 +72,7 @@ include("header.php");
 <?php if (!empty($_SESSION['changePassword'])) { ?>
     <script>
         swal({
+            title: "Mot de passe modifié !",
             text: '<?= $_SESSION['changePassword'] ?>',
             icon: 'success',
             dangerMode: true,
