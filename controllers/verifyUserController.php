@@ -7,7 +7,6 @@ require_once "../models/Personal_Picture.php";
 require_once "../models/Serie.php";
 require_once '../PHPMailer/PHPMailerAutoload.php';
 session_start();
-
 $find = 0;
 
 if(isset($_SESSION['id'])){

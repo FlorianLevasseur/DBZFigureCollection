@@ -12,6 +12,10 @@ $allSeriesArray = $allSeriesObj->getAllSeries();
 $allYearsObj = new Figure();
 $allYearsArray = $allYearsObj->getAllYears();
 
+if(isset($_POST['sort'])){
+    $_SESSION['sort'] = $_POST['sort'];
+}
+
 if (isset($_GET['character'])) {
     foreach ($allCharactersArray as $character) {
         if ($_GET['character'] == $character) {
@@ -20,26 +24,7 @@ if (isset($_GET['character'])) {
         }
     }
 
-    if($_GET['character'] == "all") {
-        $allFiguresObj = new Figure();
-        $allFiguresArray = $allFiguresObj->getAllFigures();
-
-        if (isset($_GET['page']) && !empty($_GET['page'])) {
-            $currentPage = $_GET['page'];
-        } else {
-            $currentPage = 1;
-        }
-
-        $nbFiguresObj = new Figure();
-        $nbFigures = $nbFiguresObj->getNbAllFigures();
-
-        $parPage = 10;
-        $pages = ceil($nbFigures / $parPage);
-        $premier = ($currentPage * $parPage) - $parPage;
-
-        $listLimitCharacterObj = new Figure();
-        $listLimitCharacter = $listLimitCharacterObj->getLimitListFigures($premier, $parPage);
-    } else if ($find == 0) {
+    if ($find == 0) {
         $oneCharacterObj = new Figure();
         $oneCharacterArray = $oneCharacterObj->getOneCharacter($_GET['character']);
 
@@ -57,7 +42,92 @@ if (isset($_GET['character'])) {
         $premier = ($currentPage * $parPage) - $parPage;
 
         $listLimitCharacterObj = new Figure();
-        $listLimitCharacter = $listLimitCharacterObj->getLimitListCharacter($_GET['character'], $premier, $parPage);
+        $listLimitCharacter = $listLimitCharacterObj->getLimitListCharacter($_GET['character'], $premier, $parPage, intval($_SESSION['sort']));
+    } else {
+        $listLimitCharacter = [];
+    }
+} else if (isset($_GET['serie'])) {
+    foreach ($allSeriesArray as $serie) {
+        if ($_GET['serie'] == $serie) {
+            $find++;
+            break;
+        }
+    }
+
+    if ($find == 0) {
+        
+        $oneSerieCharactersObj = new Figure();
+        $oneSerieCharactersArray = $oneSerieCharactersObj->getOneSerieCharacters($_GET['serie']);
+        
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        } else {
+            $currentPage = 1;
+        }
+
+        $nbFiguresObj = new Figure();
+        $nbFigures = $nbFiguresObj->getSerieNbCharacters($_GET['serie']);
+
+        $parPage = 10;
+        $pages = ceil($nbFigures / $parPage);
+        $premier = ($currentPage * $parPage) - $parPage;
+
+        $listLimitCharacterObj = new Figure();
+        $listLimitCharacter = $listLimitCharacterObj->getLimitListSerieCharacters($_GET['serie'], $premier, $parPage, intval($_SESSION['sort']));
+    } else {
+        $listLimitCharacter = [];
+    }
+} else if (isset($_GET['year'])) {
+    foreach ($allYearsArray as $year) {
+        if ($_GET['year'] == $year) {
+            $find++;
+            break;
+        }
+    }
+
+    if ($find == 0) {
+        $oneYearCharactersObj = new Figure();
+        $oneYearCharactersArray = $oneYearCharactersObj->getOneYearCharacters($_GET['year']);
+
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        } else {
+            $currentPage = 1;
+        }
+
+        $nbFiguresObj = new Figure();
+        $nbFigures = $nbFiguresObj->getYearNbCharacters($_GET['year']);
+
+        $parPage = 10;
+        $pages = ceil($nbFigures / $parPage);
+        $premier = ($currentPage * $parPage) - $parPage;
+
+        $listLimitCharacterObj = new Figure();
+        $listLimitCharacter = $listLimitCharacterObj->getLimitListYearCharacters($_GET['year'], $premier, $parPage, intval($_SESSION['sort']));
+    } else {
+        $listLimitCharacter = [];
+    }
+} else if (isset($_GET['height'])) {
+    $heightArray = explode("-", $_GET['height']);
+    if (isset($heightArray[0]) && isset($heightArray[1])) {
+        $oneHeightCharactersObj = new Figure();
+        $oneHeightCharactersArray = $oneHeightCharactersObj->getOneHeightCharacters(intval($heightArray[0]),intval($heightArray[1]));
+
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        } else {
+            $currentPage = 1;
+        }
+
+        $nbFiguresObj = new Figure();
+        $nbFigures = $nbFiguresObj->getHeightNbCharacters(intval($heightArray[0]),intval($heightArray[1]));
+
+        $parPage = 10;
+        $pages = ceil($nbFigures / $parPage);
+        $premier = ($currentPage * $parPage) - $parPage;
+
+        $listLimitCharacterObj = new Figure();
+        $listLimitCharacter = $listLimitCharacterObj->getLimitListHeightCharacters(intval($heightArray[0]),intval($heightArray[1]), $premier, $parPage, intval($_SESSION['sort']));
     } else {
         $listLimitCharacter = [];
     }

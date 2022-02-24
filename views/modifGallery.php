@@ -21,7 +21,7 @@ include("header.php");
                                 <label for="visible">Visible</label>
                             </div>
                             <div>
-                                <select class="form-control" name="visible" id="visible">
+                                <select class="form-select" name="visible" id="visible">
                                     <option value="0" <?= $myPicture['visible'] == 0 ? 'selected' : '' ?>>Non</option>
                                     <option value="1" <?= $myPicture['visible'] != 0 ? 'selected' : '' ?>>Oui</option>
                                 </select>

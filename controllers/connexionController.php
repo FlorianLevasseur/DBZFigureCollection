@@ -22,6 +22,7 @@ if (!empty($_POST)) {
                     $_SESSION['mail'] = $user['mail'];
                     $_SESSION['admin'] = $user['admin'];
                     $_SESSION['accepted'] = $user['accepted'];
+                    $_SESSION['sort'] = "1";
                     $_SESSION['accept'] = "";
                     $_SESSION['create'] = "";
                     $_SESSION['upload'] = "";

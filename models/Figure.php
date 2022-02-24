@@ -10,7 +10,7 @@ class Figure extends Database {
 
     public function getAllYears() {
         $db = $this->dbConnect();
-        $sql = "SELECT DISTINCT date_format(figure.date,'%Y') FROM figure;";
+        $sql = "SELECT DISTINCT date_format(figure.date,'%Y') as `year` FROM figure;";
         $resultQuery = $db->query($sql);
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -24,7 +24,7 @@ class Figure extends Database {
 
     public function getOneCharacter(string $character) {
         $db = $this->dbConnect();
-        $sql = "SELECT * FROM `figure` WHERE `figure`.`character` = '$character' ORDER BY `figure`.`full_name`;";
+        $sql = "SELECT * FROM `figure` WHERE `figure`.`character` = :character ORDER BY `figure`.`full_name`;";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':character', $character, PDO::PARAM_STR);
         $resultQuery->execute();
@@ -41,11 +41,119 @@ class Figure extends Database {
         return (int) $result['nb_character'];
     }
 
-    public function getLimitListCharacter(string $character, int $premier, int $parpage) {
+    public function getLimitListCharacter(string $character, int $premier, int $parpage, int $order) {
         $db = $this->dbConnect();
-        $sql = 'SELECT * FROM `figure` WHERE `figure`.`character` = :character LIMIT :premier, :parpage;';
+        $sql = 'SELECT * FROM `figure` WHERE `figure`.`character` = :character ORDER BY :order LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':character', $character, PDO::PARAM_STR);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getOneSerieCharacters(string $serie) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure`
+        INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
+        INNER JOIN serie ON serie.id = figure_serie.id
+        WHERE `serie`.`serie` = :serie ORDER BY `figure`.`full_name`;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':serie', $serie, PDO::PARAM_STR);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getSerieNbCharacters(string $serie) {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) AS nb_character FROM `figure`
+        INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
+        INNER JOIN serie ON serie.id = figure_serie.id
+        WHERE `serie`.`serie` = :serie;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':serie', $serie, PDO::PARAM_STR);
+        $resultQuery->execute();
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_character'];
+    }
+
+    public function getLimitListSerieCharacters(string $serie, int $premier, int $parpage, int $order) {
+        $db = $this->dbConnect();
+        $sql = 'SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` 
+        INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
+        INNER JOIN serie ON serie.id = figure_serie.id        
+        WHERE `serie`.`serie` = :serie
+        ORDER BY :order
+        LIMIT :premier, :parpage;';
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':serie', $serie, PDO::PARAM_STR);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getOneYearCharacters(string $year) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE date_format(figure.date,'%Y') = :year ORDER BY `figure`.`full_name`;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':year', $year, PDO::PARAM_STR);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getYearNbCharacters(string $year) {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) AS nb_character FROM `figure` WHERE date_format(figure.date,'%Y') = :year;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':year', $year, PDO::PARAM_STR);
+        $resultQuery->execute();
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_character'];
+    }
+
+    public function getLimitListYearCharacters(string $year, int $premier, int $parpage, int $order) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE date_format(figure.date,'%Y') = :year ORDER BY :order LIMIT :premier, :parpage;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':year', $year, PDO::PARAM_STR);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
+        $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getOneHeightCharacters(int $lowHeight, int $highHeight) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight ORDER BY `figure`.`full_name`;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':lowHeight', $lowHeight, PDO::PARAM_INT);
+        $resultQuery->bindValue(':highHeight', $highHeight, PDO::PARAM_INT);
+        $resultQuery->execute();
+        return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getHeightNbCharacters(int $lowHeight, int $highHeight) {
+        $db = $this->dbConnect();
+        $sql = "SELECT COUNT(*) AS nb_character FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':lowHeight', $lowHeight, PDO::PARAM_INT);
+        $resultQuery->bindValue(':highHeight', $highHeight, PDO::PARAM_INT);
+        $resultQuery->execute();
+        $result = $resultQuery->fetch();
+        return (int) $result['nb_character'];
+    }
+
+    public function getLimitListHeightCharacters(int $lowHeight, int $highHeight, int $premier, int $parpage, int $order) {
+        $db = $this->dbConnect();
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight ORDER BY :order LIMIT :premier, :parpage;";
+        $resultQuery = $db->prepare($sql);
+        $resultQuery->bindValue(':lowHeight', $lowHeight, PDO::PARAM_INT);
+        $resultQuery->bindValue(':highHeight', $highHeight, PDO::PARAM_INT);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
         $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
         $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
         $resultQuery->execute();

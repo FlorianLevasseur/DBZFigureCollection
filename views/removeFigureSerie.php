@@ -16,7 +16,7 @@ include("header.php");
                                 <label for="serie">Série</label>
                             </div>
                             <div>
-                                <select class="form-control" name="serie" id="serie">
+                                <select class="form-select" name="serie" id="serie">
                                     <option value="557" selected disabled>-- Choix d'une Série --</option>
                                     <?php foreach ($figureSeriesArray as $serie) { ?>
                                         <option value="<?= $serie['id'] ?>"><?= $serie['serie'] ?></option>

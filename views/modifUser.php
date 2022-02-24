@@ -33,7 +33,7 @@ include("header.php");
                                 <label for="admin">Admin</label>
                             </div>
                             <div>
-                                <select class="form-control" name="admin" id="admin">
+                                <select class="form-select" name="admin" id="admin">
                                     <option value="0" <?= $userInfos['admin'] == 0 ? 'selected' : '' ?>>Non</option>
                                     <option value="1" <?= $userInfos['admin'] != 0 ? 'selected' : '' ?>>Oui</option>
                                 </select>
@@ -45,7 +45,7 @@ include("header.php");
                                 <label for="accepted">Accepté</label>
                             </div>
                             <div>
-                                <select class="form-control" name="accepted" id="accepted">
+                                <select class="form-select" name="accepted" id="accepted">
                                     <option value="0" <?= $userInfos['accepted'] == 0 ? 'selected' : '' ?>>Non</option>
                                     <option value="1" <?= $userInfos['accepted'] != 0 ? 'selected' : '' ?>>Oui</option>
                                 </select>

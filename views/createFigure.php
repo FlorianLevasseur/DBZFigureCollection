@@ -98,7 +98,7 @@ include("header.php");
                             <label for="id_company">Éditeur</label>
                         </div>
                         <div>
-                            <select class="form-control" name="id_company" id="id_company">
+                            <select class="form-select" name="id_company" id="id_company">
                                 <option value="" selected disabled>-- Choix d'un Éditeur --</option>
                                 <?php foreach ($allCompaniesArray as $company) { ?>
                                     <option value="<?= $company['id'] ?>"><?= $company['company'] ?></option>

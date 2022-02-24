@@ -99,7 +99,7 @@ include("header.php");
                                 <label for="id_company">Éditeur</label>
                             </div>
                             <div>
-                                <select class="form-control" name="id_company" id="id_company">
+                                <select class="form-select" name="id_company" id="id_company">
                                     <?php foreach ($allCompaniesArray as $company) { ?>
                                         <option value="<?= $company['id'] ?>" <?= $figureInfos['id_company'] == $company['id'] ? 'selected' : '' ?>><?= $company['company'] ?></option>
                                     <?php } ?>
