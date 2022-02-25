@@ -46,9 +46,9 @@ if (!empty($_POST)) {
 
 if (!empty($_SESSION['id'])) {
     $myFiguresObj = new Figure();
-    $myFiguresArray = $myFiguresObj->getMyFigures(intval($_SESSION['id']));
+    $myFiguresArray = $myFiguresObj->getMyFigures(intval($_SESSION['id']), intval($_SESSION['sort']));
     $myWishesObj = new Figure();
-    $myWishesArray = $myWishesObj->getMyWishes(intval($_SESSION['id']));
+    $myWishesArray = $myWishesObj->getMyWishes(intval($_SESSION['id']), intval($_SESSION['sort']));
     foreach ($myFiguresArray as $figure) {
         if ($figure['id'] == $_GET['id']) {
             $owned++;

@@ -199,23 +199,26 @@ class Figure extends Database {
         return (int) $result['nb_figures'];
     }
 
-    public function getLimitListFigures(int $premier, int $parpage) {
+    public function getLimitListFigures(int $premier, int $parpage, int $order) {
         $db = $this->dbConnect();
-        $sql = 'SELECT * FROM `figure` LIMIT :premier, :parpage;';
+        $sql = 'SELECT * FROM `figure` ORDER BY :order LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
         $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getMyFigures(int $id) {
+    public function getMyFigures(int $id, int $order) {
         $db = $this->dbConnect();
-        $sql = "SELECT `figure`.`full_name`, `owned`.`id` FROM `owned`
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company, `owned`.`id` FROM `owned`
         INNER JOIN `figure` ON `figure`.`id` = `owned`.`id`
-        WHERE `id_user` = :id";
+        WHERE `id_user` = :id
+        ORDER BY :order";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(":order", $order, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -231,26 +234,31 @@ class Figure extends Database {
         return (int) $result['nb_owned'];
     }
 
-    public function getLimitListMyFigures(int $id, int $premier, int $parpage) {
+    public function getLimitListMyFigures(int $id, int $premier, int $parpage, int $order) {
         $db = $this->dbConnect();
-        $sql = 'SELECT * FROM `owned` 
+        $sql = 'SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `owned` 
         INNER JOIN `figure` on `figure`.`id` = `owned`.`id`
-        WHERE `id_user` = :id LIMIT :premier, :parpage;';
+        WHERE `id_user` = :id
+        ORDER BY :order
+        LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
         $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
         $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getMyWishes(int $id) {
+    public function getMyWishes(int $id, int $order) {
         $db = $this->dbConnect();
-        $sql = "SELECT `figure`.`full_name`, `wanted`.`id` FROM `wanted`
+        $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company, `wanted`.`id` FROM `wanted`
         INNER JOIN `figure` ON `figure`.`id` = `wanted`.`id`
-        WHERE `id_user` = :id";
+        WHERE `id_user` = :id
+        ORDER BY :order";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id", $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(":order", $order, PDO::PARAM_INT);
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -266,13 +274,16 @@ class Figure extends Database {
         return (int) $result['nb_wanted'];
     }
 
-    public function getLimitListMyWishes(int $id, int $premier, int $parpage) {
+    public function getLimitListMyWishes(int $id, int $premier, int $parpage, int $order) {
         $db = $this->dbConnect();
-        $sql = 'SELECT * FROM `wanted` 
+        $sql = 'SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `wanted` 
         INNER JOIN `figure` on `figure`.`id` = `wanted`.`id`
-        WHERE `id_user` = :id LIMIT :premier, :parpage;';
+        WHERE `id_user` = :id
+        ORDER BY :order
+        LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultQuery->bindValue(':order', $order, PDO::PARAM_INT);
         $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
         $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
         $resultQuery->execute();

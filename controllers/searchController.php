@@ -12,9 +12,16 @@ $allSeriesArray = $allSeriesObj->getAllSeries();
 $allYearsObj = new Figure();
 $allYearsArray = $allYearsObj->getAllYears();
 
-if(isset($_POST['sort'])){
-    $_SESSION['sort'] = $_POST['sort'];
-}
+// if(!empty($_POST)){
+//     foreach($_POST as $key => $value){
+//         if(strstr($key, "submit-")){
+//             $myIdArray = explode("-", $key);
+//             $myId = $myIdArray[1];
+//             $addCollecFigureObj = new Figure();
+//             $addCollecFigure = $addCollecFigureObj->addCollecFigure(intval($myId), intval($_SESSION['id']));
+//         }
+//     }
+// }
 
 if (isset($_GET['character'])) {
     foreach ($allCharactersArray as $character) {

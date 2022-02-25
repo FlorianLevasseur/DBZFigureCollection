@@ -18,7 +18,7 @@ class User extends Database {
 
     public function getLimitListUsers(int $premier, int $parpage) {
         $db = $this->dbConnect();
-        $sql = 'SELECT * FROM `user` LIMIT :premier, :parpage;';
+        $sql = 'SELECT * FROM `user` ORDER BY `pseudo` LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(':premier', $premier, PDO::PARAM_INT);
         $resultQuery->bindValue(':parpage', $parpage, PDO::PARAM_INT);
@@ -37,7 +37,8 @@ class User extends Database {
             WHEN `accepted` = 0 THEN 'Non'
             ELSE 'Oui'
         END as `accepted`
-        FROM `user`;";
+        FROM `user`
+        ORDER BY `pseudo`";
         $resultQuery = $db->query($sql);
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }

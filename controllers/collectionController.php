@@ -27,7 +27,7 @@ $userInfosObj = new User();
 $userInfos = $userInfosObj->getUser(intval($_GET['id']));
 
 $allOwnedObj = new Figure();
-$allOwnedArray = $allOwnedObj->getMyFigures($_GET['id']);
+$allOwnedArray = $allOwnedObj->getMyFigures($_GET['id'], intval($_SESSION['sort']));
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
     $currentPage = $_GET['page'];
@@ -43,4 +43,4 @@ $pages = ceil($nbFigures / $parPage);
 $premier = ($currentPage * $parPage) - $parPage;
 
 $listLimitMyFiguresObj = new Figure();
-$listLimitMyFigures = $listLimitMyFiguresObj->getLimitListMyFigures($_GET['id'], $premier, $parPage);
+$listLimitMyFigures = $listLimitMyFiguresObj->getLimitListMyFigures($_GET['id'], $premier, $parPage, intval($_SESSION['sort']));

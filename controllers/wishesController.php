@@ -27,7 +27,7 @@ $userInfosObj = new User();
 $userInfos = $userInfosObj->getUser(intval($_GET['id']));
 
 $allOwnedObj = new Figure();
-$allOwnedArray = $allOwnedObj->getMyWishes($_GET['id']);
+$allOwnedArray = $allOwnedObj->getMyWishes($_GET['id'], intval($_SESSION['sort']));
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
     $currentPage = $_GET['page'];
@@ -36,11 +36,11 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 }
 
 $nbFiguresObj = new Figure();
-$nbFigures = $nbFiguresObj->getNbMyFigures($_GET['id']);
+$nbFigures = $nbFiguresObj->getNbMyWishes($_GET['id']);
 
 $parPage = 10;
 $pages = ceil($nbFigures / $parPage);
 $premier = ($currentPage * $parPage) - $parPage;
 
 $listLimitMyWishesObj = new Figure();
-$listLimitMyWishes = $listLimitMyWishesObj->getLimitListMyWishes($_GET['id'], $premier, $parPage);
+$listLimitMyWishes = $listLimitMyWishesObj->getLimitListMyWishes($_GET['id'], $premier, $parPage, $_SESSION['sort']);

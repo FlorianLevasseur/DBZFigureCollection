@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "../config.php";
 require_once "../models/Database.php";
 require_once "../models/User.php";
@@ -9,11 +9,11 @@ require_once '../PHPMailer/PHPMailerAutoload.php';
 session_start();
 $find = 0;
 
-if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     $allUsersObj = new User();
     $allUsersArray = $allUsersObj->getAllUsers();
-    foreach($allUsersArray as $user) {
-        if($user['id'] == $_SESSION['id']){
+    foreach ($allUsersArray as $user) {
+        if ($user['id'] == $_SESSION['id']) {
             $_SESSION['admin'] = $user['admin'];
             $_SESSION['accepted'] = $user['accepted'];
             $find++;
@@ -21,7 +21,7 @@ if(isset($_SESSION['id'])){
         }
     }
 
-    if($find == 0){
+    if ($find == 0) {
         session_unset();
         session_destroy();
         session_start();
@@ -30,7 +30,7 @@ if(isset($_SESSION['id'])){
         exit();
     }
 
-    if($_SESSION['accepted'] == 0){
+    if ($_SESSION['accepted'] == 0) {
         session_unset();
         session_destroy();
         session_start();
@@ -38,6 +38,20 @@ if(isset($_SESSION['id'])){
         header('Location: connexion');
         exit();
     }
+}
 
+if (!isset($_SESSION['sort'])) {
+    $_SESSION['sort'] = "1";
+}
 
+if (!isset($_SESSION['display'])) {
+    $_SESSION['display'] = "1";
+}
+
+if (isset($_POST['sort'])) {
+    $_SESSION['sort'] = $_POST['sort'];
+}
+
+if (isset($_POST['display'])) {
+    $_SESSION['display'] = $_POST['display'];
 }

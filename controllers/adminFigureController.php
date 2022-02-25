@@ -20,6 +20,6 @@ if (isset($_SESSION['admin'])) {
         $premier = ($currentPage * $parPage) - $parPage;
 
         $listLimitFiguresObj = new Figure();
-        $listLimitFigures = $listLimitFiguresObj->getLimitListFigures($premier, $parPage);
+        $listLimitFigures = $listLimitFiguresObj->getLimitListFigures($premier, $parPage, intval($_SESSION['sort']));
     }
 }
