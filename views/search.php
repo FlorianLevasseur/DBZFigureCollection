@@ -78,16 +78,51 @@ include("header.php");
                     </div>
                 <?php } ?>
             <?php } else if ($_SESSION['display'] == 1) { ?>
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <table class="table table-bordered">
                         <tbody>
                             <?php foreach ($listLimitCharacter as $figure) { ?>
                                 <form method="POST">
-                                <tr class="align-middle">
-                                    <td width="10%"><img src="../assets/pictures/<?= $figure['id'] ?>-mini.jpg" alt="Image miniature de la figurine"></td>
-                                    <td width="80%"><a class="text-decoration-none text-reset" href="figure?id=<?= $figure['id'] ?>"><?= $figure['full_name'] ?></a></td>
-                                    <!-- <td width="10%" class="text-center"><input type="submit" name="submit-??= $figure['id'] ??" value="Ajouter"></td> -->
-                                </tr>
+                                    <tr class="align-middle">
+                                        <td width="5%" class="text-center"><img src="../assets/pictures/<?= $figure['id'] ?>-mini.jpg" alt="Image miniature de la figurine"></td>
+                                        <td width="85%"><a class="text-decoration-none text-reset" href="figure?id=<?= $figure['id'] ?>"><?= $figure['full_name'] ?></a></td>
+                                        <?php if (isset($_SESSION['id'])) {
+                                            foreach ($myFiguresArray as $myFigure) {
+                                                $exists = 0;
+                                                $existCollec = "";
+                                                if ($myFigure['id'] == $figure['id']) {
+                                                    $existCollec = "<td width='10%' colspan='2' class='text-center'><button class='btn shadow-none' type='submit' name='submit-remove-collec-" . $figure['id'] .  "' value='Retirer Collec'><i class='bi bi-table text-danger h3'></i></button></td>";
+                                                    $exists++;
+                                                    break;
+                                                }
+                                            }
+                                            if ($exists == 0) {
+                                                $unexistCollec = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "' value='Ajouter Collec'><i class='bi bi-table h3'></i></button></td>";
+                                            }
+                                            if ($exists == 0) {
+                                                foreach ($myWishesArray as $myWish) {
+                                                    $exists = 0;
+                                                    $existWish = "";
+                                                    if ($myWish['id'] == $figure['id']) {
+                                                        $existWish = "<td width='10%' colspan='2' class='text-center'><button class='btn shadow-none' type='submit' name='submit-remove-wish-" . $figure['id'] . "'><i class='bi bi-heart-fill text-danger h3'></i></button></td>";
+                                                        $exists++;
+                                                        break;
+                                                    }
+                                                }
+                                                if ($exists == 0) {
+                                                    $unexistsWish = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-wish-" . $figure['id'] . "'><i class='bi bi-heart h3'></i></button></td>";
+                                                }
+                                            }
+                                            if (!empty($existCollec)) {
+                                                echo $existCollec;
+                                            } else if (!empty($existWish)) {
+                                                echo $existWish;
+                                            } else {
+                                                echo $unexistCollec;
+                                                echo $unexistsWish;
+                                            }
+                                        } ?>
+                                    </tr>
                                 </form>
                             <?php } ?>
                         </tbody>

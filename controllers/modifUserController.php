@@ -64,10 +64,6 @@ if (isset($_POST['submitModif'])) {
         $arrayErrors['admin'] = "Valeur incorrecte";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $pseudo = htmlspecialchars(trim($_POST['pseudo']));
         $mail = htmlspecialchars(trim($_POST['mail']));

@@ -124,10 +124,6 @@ if (isset($_POST['submitModif'])) {
         $arrayErrors['id_company'] = "Valeur incorrecte";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $full_name = htmlspecialchars(trim($_POST['full_name']));
         $origin = htmlspecialchars(trim($_POST['origin']));

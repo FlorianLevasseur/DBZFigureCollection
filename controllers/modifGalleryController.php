@@ -36,10 +36,6 @@ if (isset($_POST['submitVisible'])) {
         $arrayErrors['visible'] = "Valeur incorrecte";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $visible = htmlspecialchars(trim($_POST['visible']));
 

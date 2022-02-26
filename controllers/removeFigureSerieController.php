@@ -47,10 +47,6 @@ if (isset($_POST['submitSerie'])) {
         $arrayErrors['serie'] = "Série non présente pour cette figurine";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $serie = htmlspecialchars(trim($_POST['serie']));
 

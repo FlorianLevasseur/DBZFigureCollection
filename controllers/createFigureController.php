@@ -116,10 +116,6 @@ if (isset($_POST['submitCreate'])) {
         $arrayErrors['id_company'] = "Cet Éditeur n'existe pas";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $id = htmlspecialchars(trim($target_name));
         $full_name = htmlspecialchars(trim($_POST['full_name']));

@@ -58,10 +58,6 @@ if (isset($_POST['submitSerie'])) {
         $arrayErrors['serie'] = "Cette Série n'existe pas";
     }
 
-    if (empty($_POST['g-recaptcha-response'])) {
-        $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
-    }
-
     if (empty($arrayErrors)) {
         $serie = htmlspecialchars(trim($_POST['serie']));
 

@@ -26,10 +26,6 @@ include("header.php");
                                     <?= $arrayErrors['serie'] ?? '' ?>
                                 </p>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="6Lf1mWkeAAAAAFcql27Pj22nPnif5qNQ8kEqQIFy"></div>
-                            <p class="text-danger text-center">
-                                <?= $arrayErrors['captcha'] ?? '' ?>
-                            </p>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-success rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitSerie" value="Retirer Serie">
                                 <a href="modifFigure?id=<?= $_GET['id'] ?>" class="btn btn-secondary rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la Figurine</a>
