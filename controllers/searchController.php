@@ -38,6 +38,7 @@ if (isset($_SESSION['id'])) {
                         $removeWishFigure = $removeWishFigureObj->removeWishFigure(intval($infosArray[3]), intval($_SESSION['id']));
                     }
                 }
+                $figureDetailsArray = $myFiguresWishesObj->getFigureDetails($infosArray[3]);
             }
         }
     }

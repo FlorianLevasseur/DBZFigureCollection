@@ -91,13 +91,13 @@ include("header.php");
                                                 $exists = 0;
                                                 $existCollec = "";
                                                 if ($myFigure['id'] == $figure['id']) {
-                                                    $existCollec = "<td width='10%' colspan='2' class='text-center'><button class='btn shadow-none' type='submit' name='submit-remove-collec-" . $figure['id'] .  "' value='Retirer Collec'><i class='bi bi-table text-danger h3'></i></button></td>";
+                                                    $existCollec = "<td width='10%' colspan='2' class='text-center'><button class='btn shadow-none' type='submit' name='submit-remove-collec-" . $figure['id'] .  "'><i class='bi bi-table text-danger h3'></i></button></td>";
                                                     $exists++;
                                                     break;
                                                 }
                                             }
                                             if ($exists == 0) {
-                                                $unexistCollec = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "' value='Ajouter Collec'><i class='bi bi-table h3'></i></button></td>";
+                                                $unexistCollec = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "'><i class='bi bi-table h3'></i></button></td>";
                                             }
                                             if ($exists == 0) {
                                                 foreach ($myWishesArray as $myWish) {
@@ -234,6 +234,19 @@ include("header.php");
         }
     }
 </script>
+<?php if (!empty($_POST)) { ?>
+        <script>
+            swal({
+                title: "Figurine <?php if ($infosArray[1] == 'add') { ?>ajoutée <?php } else if ($infosArray[1] == 'remove') { ?>retirée <?php } ?>!",
+                text: "La figurine <?= $figureDetailsArray['full_name'] ?> a bien été <?php if ($infosArray[1] == 'add') { ?>ajoutée à <?php } else if ($infosArray[1] == 'remove') { ?>retirée de <?php } ?><?php if ($infosArray[2] == 'collec') { ?>votre Collection.<?php } else if ($infosArray[2] == 'wish') { ?>votre liste de Souhaits.<?php } ?>",
+                icon: 'success',
+                dangerMode: true,
+                button: {
+                    text: "Continuer"
+                }
+            })
+        </script>
+    <?php } ?>
 <?php
 include("footer.php");
 ?>
