@@ -16,7 +16,6 @@ require_once "../controllers/headerController.php";
     <link href="../assets/css/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" href="#" id="myLink">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -24,19 +23,39 @@ require_once "../controllers/headerController.php";
 </head>
 
 <body class="bg-white">
-    <div class="container-fluid bg-white" id="myHeader">
+    <div class="bg-white" id="myHeader">
         <div class="container">
             <div class="row m-0 p-0">
-                <div class="col-lg-2 col-6 p-0">
+                <div class="col-lg-2 col-5 p-0">
                     <a href="/"><img class="logo img-fluid" src="assets/img/logoDBZFC.png" alt="Logo Dragon Ball Z Figure Collection"></a>
                 </div>
-                <div class="d-lg-block d-none col-6 m-auto">
+                <div class="d-lg-block d-none col-5 m-auto">
                     <input type="text" list="res" class="form-control shadow-none border" name="name" id="name" autocomplete="off" onkeyup="getdata();" placeholder="Rechercher une figurine">
                     <div id="res" class="bg-white text-truncate"></div>
                 </div>
-                <div class="col-lg-2 col-3 m-auto">
+                <div class="col-lg-1 col-2 m-auto text-center">
+                    <button type="button" id="quaggaStart" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-upc-scan h3"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Veuillez scanner le code-barre de la figurine</h5>
+                                    <button type="button" id="quaggaStop" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center px-0">
+                                    <div id="camera"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 my-auto ps-4">
                     <div class="form-check form-switch">
-                        <input class="form-check-input ms-0 me-2" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
+                        <input class="form-check-input me-2" type="checkbox" role="switch" id="darkSwitch" <?= isset($_COOKIE['user']) ? 'checked' : '' ?>>
                         <label class="form-check-label d-lg-block d-none" for="darkSwitch">Dark Mode</label>
                     </div>
                 </div>

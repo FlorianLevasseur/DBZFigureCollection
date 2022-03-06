@@ -8,10 +8,21 @@ include("header.php");
         <p class="h3 text-center mb-4">Mes Infos</p>
         <div class="row m-0 p-0 justify-content-center">
             <div class="col-lg-7">
-                <p>Pseudo : <?= $userInfos['pseudo'] ?></p>
-                <p>Mail : <?= $userInfos['mail'] ?></p>
-                <form method="POST">
-                    <p>Changer Mot de Passe :</p>
+                <div>
+                    <label>Pseudo</label>
+                </div>
+                <div>
+                    <input class="form-control" value="<?= $userInfos['pseudo'] ?>" disabled>
+                </div>
+                <div class="mt-3">
+                    <label>Mail</label>
+                </div>
+                <div>
+                    <input class="form-control" value="<?= $userInfos['mail'] ?>" disabled>
+                </div>
+                <p class="text-center mt-2 text-danger">Si vous souhaitez modifier votre Pseudo/Mail, veuillez en faire la demande en indiquant votre nouveau Pseudo/Mail via le formulaire de contact</p>
+                <form method="POST" class="mt-5">
+                    <p class="mb-2">Changer Mot de Passe :</p>
                     <div>
                         <label for="actualPassword">Mot de Passe Actuel</label>
                     </div>
@@ -46,6 +57,7 @@ include("header.php");
             </div>
         </div>
     <?php } else if ($existUser == 0) { ?>
+        <p class="h3 text-center mb-4">Profil</p>
         <p class="text-center">Cet Utilisateur n'existe pas.</p>
     <?php } else { ?>
         <p class="h3 text-center mb-4">Profil de <?= $userInfos['pseudo'] ?></p>

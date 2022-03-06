@@ -5,10 +5,13 @@ include("header.php");
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
     <?php if (!isset($_SESSION['id'])) { ?>
+        <p class="h3 mb-4 text-center">Contacter Utilisateur</p>
         <p class="text-center">Veuillez vous connecter pour avoir accès à cette page</p>
     <?php } else if ($existUser == 0) { ?>
+        <p class="h3 mb-4 text-center">Contacter Utilisateur</p>
         <p class="text-center">Cet Utilisateur n'existe pas.</p>
     <?php } else if ($_SESSION['id'] == $_GET['id']) { ?>
+        <p class="h3 mb-4 text-center">Contacter Utilisateur</p>
         <p class="text-center">Vous ne pouvez pas vous contacter vous-même</p>
     <?php } else { ?>
         <div class="row m-0 p-0 justify-content-center mb-4">

@@ -2,6 +2,7 @@
 require_once "../controllers/verifyUserController.php";
 
 $find = 0;
+$exists = 0;
 
 $allCharactersObj = new Figure();
 $allCharactersArray = $allCharactersObj->getAllCharacters();

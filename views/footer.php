@@ -41,6 +41,50 @@
     }
   }
 </script>
+<script type="text/javascript" src="../assets/js/quagga.min.js"></script>
+<script type="text/javascript">
+  var arrayFigure = {
+    "3296580262472": "1056",
+    "3296580259847": "1000",
+    "4983164171013": "1708",
+    "3296580336333": "719"
+  }
+  document.getElementById("quaggaStart").addEventListener("click", () => {
+    Quagga.init({
+      inputStream: {
+        name: "Live",
+        type: "LiveStream",
+        constraints: {
+          width: 550,
+          height: 300
+        },
+        target: document.querySelector('#camera'),
+      },
+      decoder: {
+        readers: ["ean_reader"],
+      }
+    }, function(err) {
+      if (err) {
+        console.log(err);
+        return
+      }
+      console.log("Initialization finished. Ready to start");
+      Quagga.start();
+    });
+    Quagga.onDetected(function(data) {
+      for (key in arrayFigure) {
+        var value = arrayFigure[key]
+        if (data.codeResult.code == key) {
+          document.location.href = `figure?id=${value}`
+          break;
+        }
+      }
+    })
+  })
+  document.getElementById("quaggaStop").addEventListener("click", () => {
+    Quagga.stop();
+  })
+</script>
 </body>
 
 </html>

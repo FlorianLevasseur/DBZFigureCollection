@@ -12,15 +12,15 @@ include("header.php");
           <tr>
             <th scope="col">Photo</th>
             <th scope="col">Visible</th>
-            <th scope="col">Détails</th>
+            <th scope="col">Modifier</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($allPicturesArray as $picture) { ?>
             <tr>
-              <td><?= $picture['picture'] ?></td>
+              <td><span class="myHover"><?= $picture['picture'] ?></span><div class="box"><img src="../assets/uploadedPictures/<?= $picture['picture'] ?>" width="300px"></div></td>
               <td class="text-center"><?= $picture['visible'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
-              <td class="text-center"><a href="modifGallery?id=<?= $picture['id'] ?>"><i class="bi bi-image h3"></i></a>
+              <td class="text-center"><a href="modifGallery?id=<?= $picture['id'] ?>"><i class="bi bi-pencil-square h3"></i></a>
             </tr>
           <?php } ?>
         </tbody>

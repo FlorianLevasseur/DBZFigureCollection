@@ -8,7 +8,7 @@ include("header.php");
     <?php
     if (!empty($_SESSION['id'])) {
         if (!empty($_GET['id'])) { ?>
-            <p class="h3 text-center mb-4"><?= $figureDetailsArray['full_name'] ?></p>
+            <p class="h3 text-center mb-3"><?= $figureDetailsArray['full_name'] ?></p>
             <?php if (empty($_POST['submit'])) { ?>
                 <form method="POST">
                     <div class="text-center">
@@ -45,7 +45,7 @@ include("header.php");
                 <?php }
                 } ?>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-3">
                 <a href="figure?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">RETOUR</a>
             </div>
         <?php } else { ?>

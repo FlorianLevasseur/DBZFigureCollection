@@ -1,28 +1,54 @@
 <?php
 class Figure extends Database {
 
-    public function getAllCharacters() {
+     /**
+     * Permet de recuperer tous les noms de personnage dans un tableau associatif 
+     * 
+     * @return array : tableau associatif
+     */
+    public function getAllCharacters() : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT DISTINCT `figure`.`character` FROM `figure` ORDER BY `figure`.`character`;";
         $resultQuery = $db->query($sql);
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getAllYears() {
+     /**
+     * Permet de recuperer toutes les années de sortie des figurines dans un tableau associatif 
+     * 
+     * @return array : tableau associatif
+     */
+    public function getAllYears() : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT DISTINCT date_format(figure.date,'%Y') as `year` FROM figure;";
         $resultQuery = $db->query($sql);
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getAllCompanies() {
+     /**
+     * Permet de recuperer tous les éditeurs de figurines dans un tableau associatif 
+     * 
+     * @return array : tableau associatif
+     */
+    public function getAllCompanies() : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT * FROM company;";
         $resultQuery = $db->query($sql);
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getOneCharacter(string $character) {
+    /**
+     * Permet de récupérer toutes les figurines correspondant à un personnage
+     * 
+     * @param string $character: ex. Son Goku
+     * 
+     * @return array : tableau associatif
+     */
+    public function getOneCharacter(string $character) : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT * FROM `figure` WHERE `figure`.`character` = :character ORDER BY `figure`.`full_name`;";
         $resultQuery = $db->prepare($sql);
@@ -31,7 +57,15 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getNbCharacter(string $character) {
+    /**
+     * Permet de récupérer le nombre de figurines correspondant à un personnage
+     * 
+     * @param string $character: ex. Son Goku
+     * 
+     * @return int
+     */
+    public function getNbCharacter(string $character) : int
+    {
         $db = $this->dbConnect();
         $sql = "SELECT COUNT(*) AS nb_character FROM `figure` WHERE `figure`.`character` = :character;";
         $resultQuery = $db->prepare($sql);
@@ -41,7 +75,18 @@ class Figure extends Database {
         return (int) $result['nb_character'];
     }
 
-    public function getLimitListCharacter(string $character, int $premier, int $parpage, int $order) {
+    /**
+     * Permet de récupérer une liste limitée des figurines correspondant à un personnage
+     * 
+     * @param string $character: ex. Son Goku
+     * @param int $premier: ex. 0
+     * @param int $parpage: ex. 6
+     * @param int $ordre: ex. 1
+     * 
+     * @return array : tableau associatif
+     */
+    public function getLimitListCharacter(string $character, int $premier, int $parpage, int $order) : array
+    {
         $db = $this->dbConnect();
         $sql = 'SELECT * FROM `figure` WHERE `figure`.`character` = :character ORDER BY :order LIMIT :premier, :parpage;';
         $resultQuery = $db->prepare($sql);
@@ -53,7 +98,15 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getOneSerieCharacters(string $serie) {
+    /**
+     * Permet de récupérer toutes les figurines correspondant à une série
+     * 
+     * @param string $serie: ex. BWFC
+     * 
+     * @return array : tableau associatif
+     */
+    public function getOneSerieCharacters(string $serie) : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure`
         INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
@@ -65,7 +118,15 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getSerieNbCharacters(string $serie) {
+    /**
+     * Permet de récupérer le nombre de figurines correspondant à une série
+     * 
+     * @param string $serie: ex. BWFC
+     * 
+     * @return int
+     */
+    public function getSerieNbCharacters(string $serie) : int
+    {
         $db = $this->dbConnect();
         $sql = "SELECT COUNT(*) AS nb_character FROM `figure`
         INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
@@ -78,7 +139,18 @@ class Figure extends Database {
         return (int) $result['nb_character'];
     }
 
-    public function getLimitListSerieCharacters(string $serie, int $premier, int $parpage, int $order) {
+    /**
+     * Permet de récupérer une liste limitée des figurines correspondant à une série
+     * 
+     * @param string $serie: ex. BWFC
+     * @param int $premier: ex. 0
+     * @param int $parpage: ex. 6
+     * @param int $ordre: ex. 1
+     * 
+     * @return array : tableau associatif
+     */
+    public function getLimitListSerieCharacters(string $serie, int $premier, int $parpage, int $order) : array
+    {
         $db = $this->dbConnect();
         $sql = 'SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` 
         INNER JOIN figure_serie ON figure_serie.id_figure = figure.id
@@ -95,7 +167,15 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getOneYearCharacters(string $year) {
+    /**
+     * Permet de récupérer toutes les figurines correspondant à une année
+     * 
+     * @param string $year: ex. 2021
+     * 
+     * @return array : tableau associatif
+     */
+    public function getOneYearCharacters(string $year) : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE date_format(figure.date,'%Y') = :year ORDER BY `figure`.`full_name`;";
         $resultQuery = $db->prepare($sql);
@@ -104,7 +184,15 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getYearNbCharacters(string $year) {
+    /**
+     * Permet de récupérer le nombre de figurines correspondant à une année
+     * 
+     * @param string $year: ex. 2021
+     * 
+     * @return int
+     */
+    public function getYearNbCharacters(string $year) : int
+    {
         $db = $this->dbConnect();
         $sql = "SELECT COUNT(*) AS nb_character FROM `figure` WHERE date_format(figure.date,'%Y') = :year;";
         $resultQuery = $db->prepare($sql);
@@ -114,7 +202,18 @@ class Figure extends Database {
         return (int) $result['nb_character'];
     }
 
-    public function getLimitListYearCharacters(string $year, int $premier, int $parpage, int $order) {
+    /**
+     * Permet de récupérer une liste limitée des figurines correspondant à une année
+     * 
+     * @param string $year: ex. 2021
+     * @param int $premier: ex. 0
+     * @param int $parpage: ex. 6
+     * @param int $ordre: ex. 1
+     * 
+     * @return array : tableau associatif
+     */
+    public function getLimitListYearCharacters(string $year, int $premier, int $parpage, int $order) : array
+    {
         $db = $this->dbConnect();
         $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE date_format(figure.date,'%Y') = :year ORDER BY :order LIMIT :premier, :parpage;";
         $resultQuery = $db->prepare($sql);
@@ -126,6 +225,14 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Permet de récupérer toutes les figurines correspondant à un ordre de taille (entre ... et ...)
+     * 
+     * @param int $lowHeight: ex. 21
+     * @param int $highHeight: ex. 25
+     * 
+     * @return array : tableau associatif
+     */
     public function getOneHeightCharacters(int $lowHeight, int $highHeight) {
         $db = $this->dbConnect();
         $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight ORDER BY `figure`.`full_name`;";
@@ -136,6 +243,14 @@ class Figure extends Database {
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
 
+     /**
+     * Permet de récupérer le nombre de figurines correspondant à un ordre de taille (entre ... et ...)
+     * 
+     * @param int $lowHeight: ex. 21
+     * @param int $highHeight: ex. 25
+     * 
+     * @return int
+     */
     public function getHeightNbCharacters(int $lowHeight, int $highHeight) {
         $db = $this->dbConnect();
         $sql = "SELECT COUNT(*) AS nb_character FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight;";
@@ -147,6 +262,17 @@ class Figure extends Database {
         return (int) $result['nb_character'];
     }
 
+    /**
+     * Permet de récupérer une liste limitée des figurines correspondant à un ordre de taille (entre ... et ...)
+     * 
+     * @param int $lowHeight: ex. 21
+     * @param int $highHeight: ex. 25
+     * @param int $premier: ex. 0
+     * @param int $parpage: ex. 6
+     * @param int $ordre: ex. 1
+     * 
+     * @return array : tableau associatif
+     */
     public function getLimitListHeightCharacters(int $lowHeight, int $highHeight, int $premier, int $parpage, int $order) {
         $db = $this->dbConnect();
         $sql = "SELECT figure.id, figure.full_name, figure.origin, figure.character, figure.form, figure.height, figure.date, figure.id_company FROM `figure` WHERE height BETWEEN :lowHeight AND :highHeight ORDER BY :order LIMIT :premier, :parpage;";
@@ -159,6 +285,7 @@ class Figure extends Database {
         $resultQuery->execute();
         return $resultQuery->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function getFigureDetails(int $id) {
         $db = $this->dbConnect();
@@ -328,7 +455,7 @@ class Figure extends Database {
 
     public function getOwnedBy(int $id_figure) {
         $db = $this->dbConnect();
-        $sql = "SELECT `owned`.`id_user`, `user`.`pseudo` FROM `owned` INNER JOIN `user` ON `user`.`id` = `owned`.`id_user` WHERE `owned`.`id` = :id_figure";
+        $sql = "SELECT `owned`.`id_user`, `user`.`pseudo` FROM `owned` INNER JOIN `user` ON `user`.`id` = `owned`.`id_user` WHERE `owned`.`id` = :id_figure ORDER BY user.pseudo";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id_figure", $id_figure, PDO::PARAM_INT);
         $resultQuery->execute();
@@ -337,7 +464,7 @@ class Figure extends Database {
 
     public function getWantedBy(int $id_figure) {
         $db = $this->dbConnect();
-        $sql = "SELECT `wanted`.`id_user`, `user`.`pseudo` FROM `wanted` INNER JOIN `user` ON `user`.`id` = `wanted`.`id_user` WHERE `wanted`.`id` = :id_figure";
+        $sql = "SELECT `wanted`.`id_user`, `user`.`pseudo` FROM `wanted` INNER JOIN `user` ON `user`.`id` = `wanted`.`id_user` WHERE `wanted`.`id` = :id_figure ORDER BY user.pseudo";
         $resultQuery = $db->prepare($sql);
         $resultQuery->bindValue(":id_figure", $id_figure, PDO::PARAM_INT);
         $resultQuery->execute();

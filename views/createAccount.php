@@ -9,7 +9,7 @@ include("header.php");
             <p class="h3 mb-4">Créez votre compte</p>
             <form method="POST" class="border border-reset pt-4">
                 <div class="form-group row m-0 p-0 pb-3">
-                    <label for="pseudo" class="col-4 form-control-label m-auto">Pseudo</label>
+                    <label for="pseudo" class="col-4 form-control-label pt-2">Pseudo</label>
                     <div class="col-7">
                         <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>">
                         <p class="text-danger">
@@ -19,7 +19,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <div class="form-group row m-0 p-0 pb-3">
-                    <label for="mail" class="col-4 form-control-label m-auto">E-mail</label>
+                    <label for="mail" class="col-4 form-control-label pt-2">E-mail</label>
                     <div class="col-7">
                         <input class="form-control" type="mail" name="mail" id="mail" value="<?= $_POST['mail'] ?? '' ?>">
                         <p class="text-danger">
@@ -29,7 +29,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <div class="form-group row m-0 p-0 pb-3">
-                    <label for="password" class="col-4 form-control-label m-auto">Mot de Passe</label>
+                    <label for="password" class="col-4 form-control-label pt-2">Mot de Passe</label>
                     <div class="col-7">
                         <input class="form-control" type="password" name="password" id="password">
                         <p class="text-danger">
@@ -39,7 +39,7 @@ include("header.php");
                     <div class="col-1"></div>
                 </div>
                 <div class="form-group row m-0 p-0 pb-3">
-                    <label for="confirmPassword" class="col-4 form-control-label m-auto">Confirmez Mot de Passe</label>
+                    <label for="confirmPassword" class="col-4 form-control-label pt-2">Confirmez Mot de Passe</label>
                     <div class="col-7">
                         <input class="form-control" type="password" name="confirmPassword" id="confirmPassword">
                         <p class="text-danger">
@@ -47,6 +47,14 @@ include("header.php");
                         </p>
                     </div>
                     <div class="col-1"></div>
+                </div>
+                <div class="form-group row m-0 p-0 pb-3 justify-content-center">
+                    <div class="col-8 text-center">
+                        <input type="checkbox" name="checkCGU" class="me-2"><label for="checkCGU">J'accepte les Conditions Générales d'Utilisation</label>
+                        <p class="text-danger">
+                            <?= $arrayErrors['checkCGU'] ?? '' ?>
+                        </p>
+                    </div>
                 </div>
                 <div class="form-group row m-0 p-0 pb-3 justify-content-center">
                     <div class="col-6 text-center">

@@ -77,19 +77,35 @@ include("header.php");
             <div class="col-lg-3 mb-4">
                 <p class="h4 text-center">Possédée par</p>
                 <table class="table table-bordered table-hover">
-                    <?php foreach ($ownedByArray as $figure) { ?>
+                    <?php $nbUsers = 0;
+                    foreach ($ownedByArray as $figure) {
+                        $nbUsers++;
+                        if ($nbUsers == 4) { ?>
+                            <td class="text-center"><button type="button" class="btn shadow-none text-primary py-0" data-bs-toggle="modal" data-bs-target="#ownedModal"><u>voir +</u></button></td>
+                        <?php break;
+                        } ?>
                         <tr>
-                            <td><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
+                            <td class="text-center"><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
                         </tr>
-                    <?php } ?>
+                    <?php
+
+
+
+                    } ?>
                 </table>
             </div>
             <div class="col-lg-3 mb-4">
                 <p class="h4 text-center">Recherchée par</p>
                 <table class="table table-bordered table-hover">
-                    <?php foreach ($wantedByArray as $figure) { ?>
+                    <?php $nbUsers = 0;
+                    foreach ($wantedByArray as $figure) {
+                        $nbUsers++;
+                        if ($nbUsers == 4) { ?>
+                            <td class="text-center"><button type="button" class="btn shadow-none text-primary py-0" data-bs-toggle="modal" data-bs-target="#wantedModal"><u>voir +</u></button></td>
+                        <?php break;
+                        } ?>
                         <tr>
-                            <td><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
+                            <td class="text-center"><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -118,8 +134,50 @@ include("header.php");
             </form>
         <?php } ?>
     <?php } else { ?>
+        <p class="h3 text-center">Figurine</p>
         <p class="text-center">Cette figurine n'existe pas.</p>
     <?php } ?>
+
+    <div class="modal fade" id="ownedModal" tabindex="-1" aria-labelledby="ownedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="modal-title text-center h5 mb-4" id="ownedModalLabel">Possédée par</p>
+                    <table class="table table-bordered table-hover mb-4">
+                        <?php foreach ($ownedByArray as $figure) { ?>
+                            <tr>
+                                <td class="text-center"><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                    <div class="text-center">
+                        <button type="button" class="btn text-white redDBZBack" data-bs-dismiss="modal">FERMER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="wantedModal" tabindex="-1" aria-labelledby="wantedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="modal-title text-center h5 mb-4" id="wantedModalLabel">Recherchée par</p>
+                    <table class="table table-bordered table-hover mb-4">
+                        <?php foreach ($wantedByArray as $figure) { ?>
+                            <tr>
+                                <td class="text-center"><a class="text-decoration-none text-reset" href="profile?id=<?= $figure['id_user'] ?>"><?= $figure['pseudo'] ?></a></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                    <div class="text-center">
+                        <button type="button" class="btn text-white redDBZBack" data-bs-dismiss="modal">FERMER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php if (!empty($_POST)) { ?>
         <script>
             swal({

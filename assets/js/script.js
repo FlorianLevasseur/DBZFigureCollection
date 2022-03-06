@@ -46,6 +46,7 @@ if (document.getElementById("darkSwitch").checked) {
     document.getElementById("myFooter").classList.replace("bg-white", "darkBackColor")
     document.body.classList.replace("bg-white", "darkBackColor")
 }
+
 if (document.getElementById("fileToUpload") != null) {
     fileToUpload.addEventListener("change", function () {
         let oFReader = new FileReader();
@@ -66,19 +67,21 @@ if (document.getElementById("fileToUploadMini") != null) {
     })
 }
 
-document.getElementById("select1").addEventListener('change', () => {
-    document.getElementById("select2").disabled = false;
-    if(document.getElementById("select1").value == 1){
-        document.getElementById("select2").setAttribute("name", "character")
-    } else if(document.getElementById("select1").value == 2){
-        document.getElementById("select2").setAttribute("name", "serie")
-    } else if(document.getElementById("select1").value == 3){
-        document.getElementById("select2").setAttribute("name", "year")
-    } else if(document.getElementById("select1").value == 4){
-        document.getElementById("select2").setAttribute("name", "height")
-    }
-    document.getElementById("submitSearch").disabled = true;
-})
-document.getElementById("select2").addEventListener('change', () => {
-    document.getElementById("submitSearch").disabled = false;
-})
+if (document.getElementById("select1") != null) {
+    document.getElementById("select1").addEventListener('change', () => {
+        document.getElementById("select2").disabled = false;
+        if (document.getElementById("select1").value == 1) {
+            document.getElementById("select2").setAttribute("name", "character")
+        } else if (document.getElementById("select1").value == 2) {
+            document.getElementById("select2").setAttribute("name", "serie")
+        } else if (document.getElementById("select1").value == 3) {
+            document.getElementById("select2").setAttribute("name", "year")
+        } else if (document.getElementById("select1").value == 4) {
+            document.getElementById("select2").setAttribute("name", "height")
+        }
+        document.getElementById("submitSearch").disabled = true;
+    })
+    document.getElementById("select2").addEventListener('change', () => {
+        document.getElementById("submitSearch").disabled = false;
+    })
+}

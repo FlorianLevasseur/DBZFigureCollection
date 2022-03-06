@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
     font-family: 'Livvic', sans-serif;
 }
 
@@ -15,6 +16,20 @@ body {
     z-index: 1;
 }
 
+.box {
+    display: none;
+    position: relative;
+}
+
+.myHover:hover+.box,
+.box:hover {
+    display: block;
+    position: absolute;
+    top: 290px;
+    left: 700px;
+    z-index: 100;
+}
+
 .swal-modal {
     width: 550px;
 }
@@ -26,7 +41,7 @@ body {
 .swal-text {
     font-size: 1.125rem;
     text-align: center;
-    color: rgba(0,0,0,.8);
+    color: rgba(0, 0, 0, .8);
 }
 
 .swal-footer {
@@ -35,7 +50,7 @@ body {
 }
 
 .swal-button {
-    font-size : 1rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 
@@ -46,7 +61,7 @@ body {
 #res {
     position: absolute;
     z-index: 3;
-    width: 32.8%;
+    width: 27.1%;
 }
 
 .redDBZColor {
@@ -57,8 +72,24 @@ body {
     background-color: #cc0921;
 }
 
+.greenDBZBack {
+    background-color: #979054;
+}
+
+.blueDBZBack {
+    background-color: #2d2b5b;
+}
+
 .redDBZBack:hover {
     background-color: red;
+}
+
+.greenDBZBack:hover {
+    background-color: #8eb242;
+}
+
+.blueDBZBack:hover {
+    background-color: #4b5c93;
 }
 
 .myBtn:hover {
@@ -80,33 +111,35 @@ body {
     width: auto;
 }
 
-.titleBorder {
-    border: 5px double black;
-}
-
-.actu, .upgrade, .footLink, .footLinkDark{
+.actu,
+.upgrade,
+.footLink,
+.footLinkDark {
     text-decoration: none;
     color: inherit;
 }
 
-.actu:hover, .upgrade:hover {
+.actu:hover,
+.upgrade:hover {
     color: #cc0921;
 }
 
 .account {
-    color: rgba(0,0,0,0.55);
+    color: rgba(0, 0, 0, 0.55);
 }
 
-.account:hover, .footLink:hover {
-    color: rgba(0,0,0,0.75);
+.account:hover,
+.footLink:hover {
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .accountDark {
-    color: rgba(255,255,255,0.55);
+    color: rgba(255, 255, 255, 0.55);
 }
 
-.accountDark:hover, .footLinkDark:hover{
-    color: rgba(255,255,255,0.75);
+.accountDark:hover,
+.footLinkDark:hover {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .logoZ {
@@ -125,7 +158,7 @@ th {
 
 footer {
     border-top: 1px solid black;
-    margin-top: auto;    
+    margin-top: auto;
 }
 
 .g-recaptcha {
@@ -133,11 +166,16 @@ footer {
     width: 304px;
 }
 
+.drawingBuffer {
+    width: 0;
+    height: 0;
+}
+
 @media screen and (max-width: 992px) {
     body {
         background: none;
     }
-    
+
     .content {
         margin-top: 1rem;
         border: none;

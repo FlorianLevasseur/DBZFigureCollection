@@ -24,7 +24,7 @@ include("header.php");
               <td><?= $user['mail'] ?></td>
               <td class="text-center"><?= $user['admin'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
               <td class="text-center"><?= $user['accepted'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
-              <td class="text-center"><a href="modifUser?id=<?= $user['id'] ?>"><i class="bi bi-person-circle h3"></i></a>
+              <td class="text-center"><a href="modifUser?id=<?= $user['id'] ?>"><i class="bi bi-pencil-square h3"></i></a>
             </tr>
           <?php } ?>
         </tbody>
@@ -48,7 +48,7 @@ include("header.php");
         </ul>
       </nav>
       <div class="text-center">
-        <a href="createUser" class="btn btn-secondary">Créer Utilisateur</a>
+        <a href="createUser" class="btn blueDBZBack text-white">Créer Utilisateur</a>
       </div>
     <?php } else { ?>
       <p class="text-center">Vous n'avez pas accès à cette page.</p>

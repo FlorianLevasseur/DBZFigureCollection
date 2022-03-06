@@ -45,6 +45,10 @@ if(isset($_POST['submit'])){
         $arrayErrors['confirmPassword'] = "Mots de Passe non identiques";
     }
 
+    if(!isset($_POST['checkCGU'])){
+        $arrayErrors['checkCGU'] = "Veuillez accepter les CGU";
+    }
+
     if(empty($_POST['g-recaptcha-response'])){
         $arrayErrors['captcha'] = "Veuillez confirmer le CAPTCHA";
     }

@@ -9,9 +9,9 @@ include("header.php");
             <p class="h3 mb-4">Contact</p>
             <form method="POST">
                 <div class="form-group row m-0 p-0 pb-3">
-                    <label for="name" class="col-4 form-control-label m-auto">Nom</label>
+                    <label for="pseudo" class="col-4 form-control-label m-auto">Nom</label>
                     <div class="col-7">
-                        <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $_POST['name'] ?? '' ?>">
+                        <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>">
                     </div>
                     <div class="col-1"></div>
                 </div>

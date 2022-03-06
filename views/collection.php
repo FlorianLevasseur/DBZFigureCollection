@@ -5,8 +5,10 @@ include("header.php");
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
     <?php if (empty($_SESSION['id'])) { ?>
+        <p class="h3 mb-4 text-center">Collection</p>
         <p class="text-center">Veuillez vous connecter pour avoir accès à cette page</p>
     <?php } else if ($existUser == 0) { ?>
+        <p class="h3 mb-4 text-center">Collection</p>
         <p class="text-center">Cet Utilisateur n'existe pas</p>
     <?php } else { ?>
         <p class="h3 mb-4 text-center">Collection de <?= $userInfos['pseudo'] ?></p>
@@ -34,13 +36,13 @@ include("header.php");
         </form>
         <?php if ($_SESSION['display'] == 1) { ?>
             <div class="row m-0 p-0 justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <table class="table table-bordered">
                         <tbody>
                             <?php foreach ($listLimitMyFigures as $figure) { ?>
                                 <tr class="align-middle">
-                                    <td width="10%"><img src="../assets/pictures/<?= $figure['id'] ?>-mini.jpg" alt="Image miniature de la figurine"></td>
-                                    <td width="90%"><a class="text-decoration-none text-reset" href="figure?id=<?= $figure['id'] ?>"><?= $figure['full_name'] ?></a></td>
+                                    <td width="5%" class="text-center"><img src="../assets/pictures/<?= $figure['id'] ?>-mini.jpg" alt="Image miniature de la figurine"></td>
+                                    <td width="95%"><a class="text-decoration-none text-reset" href="figure?id=<?= $figure['id'] ?>"><?= $figure['full_name'] ?></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -51,12 +53,16 @@ include("header.php");
             <div class="row m-0 p-0 justify-content-center">
                 <?php foreach ($listLimitMyFigures as $figure) { ?>
                     <div class="col-lg-3 mb-3 d-flex items-stretch">
-                        <a class="card text-decoration-none text-reset border border-reset" href="figure?id=<?= $figure['id'] ?>">
-                            <img src="../assets/pictures/<?= $figure['id'] ?>.jpg" class="card-img-top" alt="Image de la figurine">
-                            <div class="card-body d-flex flex-column">
-                                <p class="card-title h5 mt-auto text-center"><?= $figure['full_name'] ?></p>
+                        <div class="card border border-reset">
+                            <a class="text-decoration-none text-reset mb-2" href="figure?id=<?= $figure['id'] ?>">
+                                <img src="../assets/pictures/<?= $figure['id'] ?>.jpg" class="card-img-top" alt="Image de la figurine">
+                            </a>
+                            <div class="card-body d-flex flex-column p-0">
+                                <a class="text-decoration-none text-reset my-auto" href="figure?id=<?= $figure['id'] ?>">
+                                    <p class="card-title h5 mt-auto text-center p-2"><?= $figure['full_name'] ?></p>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 <?php } ?>
             </div>

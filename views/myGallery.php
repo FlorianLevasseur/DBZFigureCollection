@@ -7,9 +7,9 @@ include("header.php");
     <?php if (!empty($_SESSION['id'])) {
         if ($existUser != 0) {
             if ($_SESSION['id'] == $_GET['id']) { ?>
-                <p class="h3 text-center mb-4">Ma Gallerie</p>
+                <p class="h3 text-center mb-4">Ma Galerie</p>
             <?php } else { ?>
-                <p class="h3 text-center mb-4">Gallerie de <?= $myUser ?></p>
+                <p class="h3 text-center mb-4">Galerie de <?= $myUser ?></p>
             <?php } ?>
             <div class="row m-0 p-0" data-masonry='{"percentPosition": true }'>
                 <?php foreach ($userPicturesArray as $picture) {
@@ -22,13 +22,15 @@ include("header.php");
                 <?php }
                 } ?>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-3">
                 <a href="profile?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">RETOUR</a>
             </div>
         <?php } else { ?>
+            <p class="h3 text-center mb-4">Galerie</p>
             <p class="text-center">Cet Utilisateur n'existe pas</p>
         <?php }
     } else { ?>
+        <p class="h3 text-center mb-4">Galerie</p>
         <p class="text-center">Veuillez vous connecter pour avoir accès à cette page</p>
     <?php } ?>
 </div>

@@ -18,7 +18,7 @@ include("header.php");
                 </div>
                 <p class="text-danger"><?= $arrayErrors['mail'] ?? '' ?></p>
                 <input type="submit" name="submit" id="submit" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mb-3" value="ENVOYER">
-                <a href="connexion" class="btn btn-secondary rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mb-3">RETOUR CONNEXION</a>
+                <a href="connexion" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mb-3">RETOUR CONNEXION</a>
             </form>
         </div>
     </div>

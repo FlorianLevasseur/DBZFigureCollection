@@ -6,7 +6,7 @@ include("header.php");
   <!-- Pour un espace de chaque coté en responsive -->
   <!-- <div class="row m-0 p-0"> -->
   <div class="row m-0 p-0 justify-content-center">
-    <div class="col-11 titleBorder pt-3">
+    <div class="col-11 pt-3">
       <h1 class="text-center mb-4">Bienvenue sur Dragon Ball Z Figure Collection</h1>
       <p class="text-center h5 mb-4 resumeText">
         Ce site vous permettra de rechercher toutes les figurines existantes des différentes séries Dragon Ball
@@ -176,7 +176,7 @@ include("header.php");
   <script>
     swal({
       title: "Compte créé !",
-      text: "Votre compte à bien été créé et est en attente de confirmation par un administrateur ! Veuillez attendre que votre compté soit accepté !",
+      text: "Votre compte à bien été créé et est en attente de confirmation par un administrateur ! Veuillez attendre que votre compte soit accepté !",
       icon: 'success',
       dangerMode: true,
       button: {

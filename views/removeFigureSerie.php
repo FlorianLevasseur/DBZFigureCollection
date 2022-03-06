@@ -27,8 +27,8 @@ include("header.php");
                                 </p>
                             </div>
                             <div class="text-center">
-                                <input type="submit" class="btn btn-success rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitSerie" value="Retirer Serie">
-                                <a href="modifFigure?id=<?= $_GET['id'] ?>" class="btn btn-secondary rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la Figurine</a>
+                                <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitSerie" value="Retirer Serie">
+                                <a href="modifFigure?id=<?= $_GET['id'] ?>" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la Figurine</a>
                             </div>
                         </div>
                     </div>
