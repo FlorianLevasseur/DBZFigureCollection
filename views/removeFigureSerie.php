@@ -11,7 +11,7 @@ include("header.php");
                 <p class="h3 text-center mb-4"><?= $figureInfos['full_name'] ?></p>
                 <form method="POST">
                     <div class="row m-0 p-0 justify-content-center">
-                        <div class="col-6 m-auto">
+                        <div class="col-lg-6 m-auto">
                             <div>
                                 <label for="serie">Série</label>
                             </div>
@@ -26,7 +26,7 @@ include("header.php");
                                     <?= $arrayErrors['serie'] ?? '' ?>
                                 </p>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center mt-4">
                                 <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitSerie" value="Retirer Serie">
                                 <a href="modifFigure?id=<?= $_GET['id'] ?>" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la Figurine</a>
                             </div>

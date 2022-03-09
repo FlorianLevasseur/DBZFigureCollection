@@ -18,7 +18,7 @@ include("header.php");
     <?php if (empty($_GET['character']) && empty($_GET['serie']) && empty($_GET['year']) && empty($_GET['height'])) { ?>
         <form method="GET">
             <div class="row m-0 p-0 justify-content-center">
-                <div class="col-lg-3 col-9 my-3">
+                <div class="col-lg-3 col-11 my-3">
                     <select class="form-select" id="select1" onchange="getdata1()">
                         <option value="" selected disabled>-- Rechercher par --</option>
                         <option value="1">Personnage</option>
@@ -27,7 +27,7 @@ include("header.php");
                         <option value="4">Taille</option>
                     </select>
                 </div>
-                <div class="col-lg-3 col-9 my-3">
+                <div class="col-lg-3 col-11 my-3">
                     <select class="form-select" id="select2" disabled>
                         <option selected disabled>Choix...</option>
                     </select>
@@ -45,8 +45,8 @@ include("header.php");
     <?php } else { ?>
         <form method="POST">
             <div class="row m-0 p-0 justify-content-center">
-                <div class="col-4 mb-4">
-                    <label for="sort">Tri </label>
+                <div class="col-lg-4 col-6 mb-4">
+                    <label for="sort">Tri</label><br>
                     <select name="sort" onchange="this.form.submit()">
                         <option value="1" <?= $_SESSION['sort'] == 1 ? 'selected' : '' ?>>Date de Mise en Ligne</option>
                         <option value="2" <?= $_SESSION['sort'] == 2 ? 'selected' : '' ?>>Nom Complet</option>
@@ -56,8 +56,8 @@ include("header.php");
                         <option value="7" <?= $_SESSION['sort'] == 7 ? 'selected' : '' ?>>Date de Sortie</option>
                     </select>
                 </div>
-                <div class="col-4 text-end">
-                    <label for="display">Affichage </label>
+                <div class="col-lg-4 col-6 text-end">
+                    <label for="display">Affichage</label><br>
                     <select name="display" onchange="this.form.submit()">
                         <option value="1" <?= $_SESSION['display'] == 1 ? 'selected' : '' ?>>Liste</option>
                         <option value="2" <?= $_SESSION['display'] == 2 ? 'selected' : '' ?>>Grille</option>

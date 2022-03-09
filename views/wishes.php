@@ -14,8 +14,8 @@ include("header.php");
         <p class="h3 mb-4 text-center">Souhaits de <?= $userInfos['pseudo'] ?></p>
         <form method="POST">
             <div class="row m-0 p-0 justify-content-center">
-                <div class="col-4 mb-4">
-                    <label for="sort">Tri </label>
+                <div class="col-lg-4 col-6 mb-4">
+                    <label for="sort">Tri</label><br>
                     <select name="sort" onchange="this.form.submit()">
                         <option value="1" <?= $_SESSION['sort'] == 1 ? 'selected' : '' ?>>Date de Mise en Ligne</option>
                         <option value="2" <?= $_SESSION['sort'] == 2 ? 'selected' : '' ?>>Nom Complet</option>
@@ -25,8 +25,8 @@ include("header.php");
                         <option value="7" <?= $_SESSION['sort'] == 7 ? 'selected' : '' ?>>Date de Sortie</option>
                     </select>
                 </div>
-                <div class="col-4 text-end">
-                    <label for="display">Affichage </label>
+                <div class="col-lg-4 col-6 text-end">
+                    <label for="display">Affichage</label><br>
                     <select name="display" onchange="this.form.submit()">
                         <option value="1" <?= $_SESSION['display'] == 1 ? 'selected' : '' ?>>Liste</option>
                         <option value="2" <?= $_SESSION['display'] == 2 ? 'selected' : '' ?>>Grille</option>

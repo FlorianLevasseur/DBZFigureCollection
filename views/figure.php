@@ -4,10 +4,8 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <!-- <div class="row m-0 p-0 justify-content-center"> -->
     <?php if (!empty($figureDetailsArray)) { ?>
         <p class="h3 text-center"><?= $figureDetailsArray['full_name'] ?></p>
-        <!-- </div> -->
         <?php if (isset($_SESSION['admin'])) {
             if ($_SESSION['admin'] != 0) { ?>
                 <div class="text-center">
@@ -19,7 +17,7 @@ include("header.php");
             <div class="col-lg-4 text-center my-auto">
                 <a href="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" data-lightbox="principalPicture"><img class="img-fluid" src="../assets/pictures/<?= $figureDetailsArray['id'] ?>.jpg" alt="Photo d'une figurine"></a>
             </div>
-            <div class="col-lg-4 my-auto">
+            <div class="col-lg-4 my-auto mt-4">
                 <table class="table table-bordered table-striped mb-0">
                     <tr>
                         <th>Origine</th>

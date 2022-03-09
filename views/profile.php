@@ -50,7 +50,7 @@ include("header.php");
                 </form>
             </div>
             <div class="row m-0 p-0 justify-content-center">
-                <a href="myGallery?id=<?= $_SESSION['id'] ?>" class="col-lg-3 btn myBtn border text-center my-2">
+                <a href="myGallery?id=<?= $_SESSION['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                     <p><i class="bi bi-images h1"></i></p>
                     <p class="h4">Ma Gallerie</p>
                 </a>
@@ -62,15 +62,15 @@ include("header.php");
     <?php } else { ?>
         <p class="h3 text-center mb-4">Profil de <?= $userInfos['pseudo'] ?></p>
         <div class="row m-0 p-0 justify-content-around">
-            <a href="collection?id=<?= $_GET['id'] ?>" class="col-lg-3 btn myBtn border text-center my-2">
+            <a href="collection?id=<?= $_GET['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                 <p><i class="bi bi-table h1"></i></p>
                 <p class="h4">Sa Collection</p>
             </a>
-            <a href="wishes?id=<?= $_GET['id'] ?>" class="col-lg-3 btn myBtn border text-center my-2">
+            <a href="wishes?id=<?= $_GET['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                 <p><i class="bi bi-heart-fill h1"></i></p>
                 <p class="h4">Ses Souhaits</p>
             </a>
-            <a href="myGallery?id=<?= $_GET['id'] ?>" class="col-lg-3 btn myBtn border text-center my-2">
+            <a href="myGallery?id=<?= $_GET['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                 <p><i class="bi bi-images h1"></i></p>
                 <p class="h4">Sa Gallerie</p>
             </a>

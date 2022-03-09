@@ -117,11 +117,13 @@ include("header.php");
                             <?php } ?>
 
                             <div class="text-center">
-                                <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitModif" value="Modifier Figurine">
-                                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer Figurine</button>
-                                <a href="adminFigure" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la liste</a>
-                                <a href="addFigureSerie?id=<?= $_GET['id'] ?>" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3">Ajouter une Série</a>
-                                <a href="removeFigureSerie?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3">Retirer une Série</a>
+                                <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3" name="submitModif" value="Modifier Figurine">
+                                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer Figurine</button>
+                                <a href="adminFigure" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3">Retour à la liste</a>
+                                <div>
+                                    <a href="addFigureSerie?id=<?= $_GET['id'] ?>" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3">Ajouter une Série</a>
+                                    <a href="removeFigureSerie?id=<?= $_GET['id'] ?>" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3">Retirer une Série</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -108,7 +108,7 @@ include("header.php");
                                 <?= $arrayErrors['id_company'] ?? '' ?>
                             </p>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center mt-4">
                             <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitCreate" value="Ajouter Figurine">
                             <a href="adminFigure" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4">Retour à la liste</a>
                         </div>

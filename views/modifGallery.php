@@ -30,9 +30,9 @@ include("header.php");
                                 </p>
                             </div>
                             <div class="text-center">
-                                <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitVisible" value="VALIDER">
-                                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer Photo</button>
-                                <a href="adminGallery" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4" name="submitModif" value="Modifier User">Retour à la liste</a>
+                                <input type="submit" class="btn greenDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3" name="submitVisible" value="VALIDER">
+                                <button type="button" class="btn redDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer Photo</button>
+                                <a href="adminGallery" class="btn blueDBZBack rounded-3 text-white pt-2 pb-2 ps-4 pe-4 mt-3" name="submitModif" value="Modifier User">Retour à la liste</a>
                             </div>
                         </div>
                     </div>

@@ -3,8 +3,6 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-  <!-- Pour un espace de chaque coté en responsive -->
-  <!-- <div class="row m-0 p-0"> -->
   <div class="row m-0 p-0 justify-content-center">
     <div class="col-11 pt-3">
       <h1 class="text-center mb-4">Bienvenue sur Dragon Ball Z Figure Collection</h1>
@@ -47,7 +45,6 @@ include("header.php");
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <!-- </div> -->
 
   <hr class="mt-4 mb-0">
   <div class="row justify-content-around m-0 p-0">

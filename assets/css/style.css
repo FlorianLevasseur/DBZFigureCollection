@@ -16,6 +16,10 @@ body {
     z-index: 1;
 }
 
+.alignLabel {
+    text-align: center;
+}
+
 .box {
     display: none;
     position: relative;
@@ -189,5 +193,13 @@ footer {
 
     .connectForm {
         border: none;
+    }
+
+    .swal-modal {
+        width: 350px;
+    }
+
+    .alignLabel {
+        text-align: start;
     }
 }
