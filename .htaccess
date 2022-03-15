@@ -1,5 +1,7 @@
 RewriteEngine On
 
+Options All -Indexes
+
 RewriteRule accueil views/home.php
 RewriteRule ^/?$ accueil
 RewriteRule search views/search.php
@@ -29,5 +31,7 @@ RewriteRule myGallery views/myGallery.php
 RewriteRule sendMail views/sendMail.php
 RewriteRule collection views/collection.php
 RewriteRule wishes views/wishes.php
+RewriteRule CGU views/CGU.php
+RewriteRule legalNotice views/legalNotice.php
 
 ErrorDocument 404 /views/404.php

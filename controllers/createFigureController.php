@@ -5,9 +5,12 @@ $arrayErrors = [];
 $alreadyFullName = 0;
 $existCompany = 0;
 
+/**
+ * Vérification de l'existance de l'Éditeur dans la base de données
+ */
 $allFiguresObj = new Figure();
 $allCompaniesArray = $allFiguresObj->getAllCompanies();
-if(isset($_POST['id_company'])){
+if (isset($_POST['id_company'])) {
     foreach ($allCompaniesArray as $company) {
         if ($company['id'] == $_POST['id_company']) {
             $existCompany++;
@@ -16,6 +19,9 @@ if(isset($_POST['id_company'])){
 }
 
 if (isset($_POST['submitCreate'])) {
+    /**
+     * Vérification de l'existance du nom complet dans la base de données
+     */
     $allFiguresObj = new Figure();
     $allFiguresArray = $allFiguresObj->getAllFigures();
     foreach ($allFiguresArray as $figure) {
@@ -24,6 +30,9 @@ if (isset($_POST['submitCreate'])) {
         }
     }
 
+    /**
+     * Vérification du type de fichier et de l'extension pour upload de l'image de la figurine 
+     */
     if (empty($_FILES['fileToUpload']['name'])) {
         $arrayErrors['fileToUpload'] = "Veuillez choisir une image";
     } else if ($_FILES['fileToUpload']['error'] != 0) {
@@ -52,6 +61,9 @@ if (isset($_POST['submitCreate'])) {
         }
     }
 
+    /**
+     * Vérification du type de fichier et de l'extension pour upload de la miniature de la figurine 
+     */
     if (empty($_FILES['fileToUploadMini']['name'])) {
         $arrayErrors['fileToUploadMini'] = "Veuillez choisir une image";
     } else if ($_FILES['fileToUploadMini']['error'] != 0) {
@@ -80,6 +92,10 @@ if (isset($_POST['submitCreate'])) {
         }
     }
 
+
+    /**
+     * Vérification des différents champs si vide ou si déjà existants pour les champs ne pouvant pas avoir de doublons
+     */
     if (empty($_POST['full_name'])) {
         $arrayErrors['full_name'] = "Champs non rempli";
     } else if ($alreadyFullName != 0) {
@@ -108,14 +124,15 @@ if (isset($_POST['submitCreate'])) {
         $arrayErrors['date'] = "Champs non rempli";
     }
 
-
-
     if (empty($_POST['id_company'])) {
         $arrayErrors['id_company'] = "Champs non rempli";
-    }else if ($existCompany == 0) {
+    } else if ($existCompany == 0) {
         $arrayErrors['id_company'] = "Cet Éditeur n'existe pas";
     }
 
+    /**
+     * Utilisation de htmlspecialchars et trim pour sécuriser le formulaire et création de la figurine
+     */
     if (empty($arrayErrors)) {
         $id = htmlspecialchars(trim($target_name));
         $full_name = htmlspecialchars(trim($_POST['full_name']));

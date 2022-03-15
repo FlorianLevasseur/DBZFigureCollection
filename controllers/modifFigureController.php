@@ -135,13 +135,16 @@ if (isset($_POST['submitModif'])) {
 
         $modifFigureObj = new Figure();
         $modifFigureObj->modifFigure(intval($_GET['id']), $full_name, $origin, $character, $form, $height, $date, intval($id_company));
-        
+
         $_SESSION['modif'] = $full_name;
         header('Location: adminFigure');
         exit();
     }
 }
 
+/**
+ * Suppression d'une figurine et de toutes les images correspondant à celle-ci, également en local
+ */
 if (isset($_POST['delete'])) {
     $deleteFigureObj = new Figure();
     $deleteFigureInfos = $deleteFigureObj->getFigureDetails(intval($_GET['id']));
@@ -155,7 +158,7 @@ if (isset($_POST['delete'])) {
     unlink("../assets/pictures/" . $_GET['id'] . ".jpg");
     unlink("../assets/pictures/" . $_GET['id'] . "-mini.jpg");
     $deleteFigureObj->deleteFigure(intval($_GET['id']));
-    
+
     $_SESSION['delete'] = $deleteFigureInfos['full_name'];
     header('Location: adminFigure');
     exit();

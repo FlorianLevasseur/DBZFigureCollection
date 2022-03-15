@@ -3,16 +3,16 @@
     <div class="container">
       <div class="row m-0 p-0 text-center pb-3">
         <div class="col-lg-4 col-5 m-auto">
-          <a class="footLink" href="#" id="foot1">Mentions Légales</a>
+          <a class="footLink" href="legalNotice" id="foot1">Mentions Légales</a>
         </div>
         <div class="col-lg-4 col-4 m-auto">
-          <a class="footLink" href="#" id="foot2">Conditions Générales d'Utilisation</a>
+          <a class="footLink" href="CGU" id="foot2">Conditions Générales d'Utilisation</a>
         </div>
         <div class="col-lg-4 col-3 m-auto">
           <a class="footLink" href="contact" id="foot3">Contact</a>
         </div>
       </div>
-      <p class="text-center">©2021 DBZ Figure Collection | Designed by TiFlo</p>
+      <p class="text-center">©2021-2022 DBZ Figure Collection | Designed by TiFlo</p>
     </div>
   </div>
 </footer>
