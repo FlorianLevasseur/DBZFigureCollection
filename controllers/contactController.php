@@ -6,7 +6,7 @@ $arrayErrors = [];
 if (isset($_POST['submit'])) {
 
     if (empty($_POST['pseudo'])) {
-        $arrayErrors['pseudo'] = "Champs non rempli";
+        $arrayErrors['name'] = "Champs non rempli";
     }
 
     if (empty($_POST['mail'])) {

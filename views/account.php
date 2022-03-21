@@ -35,7 +35,7 @@ include("header.php");
       </a>
       <a href="adminGallery" class="col-lg-3 col-11 btn myBtn border text-center my-2">
         <p><i class="bi bi-gear h1"></i><i class="bi bi-images h1"></i></p>
-        <p class="h4">Gérer Galleries</p>
+        <p class="h4">Gérer Galeries</p>
       </a>
     </div>
   <?php } ?>

@@ -38,7 +38,7 @@ include("header.php");
                     </div>
                     <p class="text-danger"><?= $arrayErrors['newPassword'] ?? '' ?></p>
                     <div>
-                        <label for="confirmPassword">Mot de Passe Actuel</label>
+                        <label for="confirmPassword">Confirmation Mot de Passe</label>
                     </div>
                     <div>
                         <input class="form-control" type="password" name="confirmPassword">
@@ -52,7 +52,7 @@ include("header.php");
             <div class="row m-0 p-0 justify-content-center">
                 <a href="myGallery?id=<?= $_SESSION['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                     <p><i class="bi bi-images h1"></i></p>
-                    <p class="h4">Ma Gallerie</p>
+                    <p class="h4">Ma Galerie</p>
                 </a>
             </div>
         </div>
@@ -72,7 +72,7 @@ include("header.php");
             </a>
             <a href="myGallery?id=<?= $_GET['id'] ?>" class="col-lg-3 col-11 btn myBtn border text-center my-2">
                 <p><i class="bi bi-images h1"></i></p>
-                <p class="h4">Sa Gallerie</p>
+                <p class="h4">Sa Galerie</p>
             </a>
         </div>
         <div class="text-center mt-3">

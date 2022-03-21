@@ -20,12 +20,12 @@ include("header.php");
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($allUsersArray as $user) { ?>
+              <?php foreach ($listLimitUsers as $user) { ?>
                 <tr>
-                  <td><?= $user['pseudo'] ?></td>
+                  <td><a class="text-decoration-none text-reset" href="profile?id=<?= $user['id'] ?>"><?= $user['pseudo'] ?></a></td>
                   <td><?= $user['mail'] ?></td>
-                  <td class="text-center"><?= $user['admin'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
-                  <td class="text-center"><?= $user['accepted'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+                  <td class="text-center"><?= $user['admin'] == 1 ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+                  <td class="text-center"><?= $user['accepted'] == 1 ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
                   <td class="text-center"><a href="modifUser?id=<?= $user['id'] ?>"><i class="bi bi-pencil-square h3"></i></a>
                 </tr>
               <?php } ?>

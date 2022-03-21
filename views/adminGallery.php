@@ -4,7 +4,7 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-  <p class="h3 text-center mb-4">Gérer Galleries</p>
+  <p class="h3 text-center mb-4">Gérer Galeries</p>
   <?php if (isset($_SESSION['admin'])) {
     if ($_SESSION['admin'] != 0) { ?>
       <div class="row m-0 p-0 justify-content-center">
@@ -18,12 +18,12 @@ include("header.php");
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($allPicturesArray as $picture) { ?>
+              <?php foreach ($listLimitPictures as $picture) { ?>
                 <tr>
                   <td><span class="myHover"><?= $picture['picture'] ?></span>
                     <div class="box"><img src="../assets/uploadedPictures/<?= $picture['picture'] ?>" width="300px"></div>
                   </td>
-                  <td class="text-center"><?= $picture['visible'] == "Oui" ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
+                  <td class="text-center"><?= $picture['visible'] == 1 ? "<i class='bi bi-check-lg h3 text-success'></i>" : "" ?></td>
                   <td class="text-center"><a href="modifGallery?id=<?= $picture['id'] ?>"><i class="bi bi-pencil-square h3"></i></a>
                 </tr>
               <?php } ?>

@@ -4,7 +4,7 @@ include("header.php");
 ?>
 
 <div class="container bg-white content pt-3 pb-3 my-5" id="contentId">
-    <p class="h3 text-center mb-0">Gallerie</p>
+    <p class="h3 text-center mb-0">Galerie</p>
     <?php
     if (!empty($_SESSION['id'])) {
         if (!empty($_GET['id'])) { ?>
