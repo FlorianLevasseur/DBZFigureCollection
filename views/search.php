@@ -90,7 +90,7 @@ include("header.php");
                                                 }
                                             }
                                             if ($exists == 0) {
-                                                $unexistCollec = "<div class='col-6 text-center border-top border-end'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "'><i class='bi bi-table h3'></i></button></div>";
+                                                $unexistCollec = "<div class='col-6 text-center border-top border-end'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "'><i class='bi bi-table h3'></i><i class='bi bi-plus-circle-fill'></i></button></div>";
                                             }
                                             if ($exists == 0) {
                                                 foreach ($myWishesArray as $myWish) {
@@ -103,7 +103,7 @@ include("header.php");
                                                     }
                                                 }
                                                 if ($exists == 0) {
-                                                    $unexistsWish = "<div class='col-6 text-center border-top'><button class='btn shadow-none' type='submit' name='submit-add-wish-" . $figure['id'] . "'><i class='bi bi-heart h3'></i></button></div>";
+                                                    $unexistsWish = "<div class='col-6 text-center border-top'><button class='btn shadow-none' type='submit' name='submit-add-wish-" . $figure['id'] . "'><i class='bi bi-heart h3'></i><i class='bi bi-plus-circle-fill'></i></button></div>";
                                                 }
                                             }
                                             if (!empty($existCollec)) {
@@ -144,7 +144,7 @@ include("header.php");
                                                 }
                                             }
                                             if ($exists == 0) {
-                                                $unexistCollec = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-collec-" . $figure['id'] . "'><i class='bi bi-table h3'></i></button></td>";
+                                                $unexistCollec = "<td width='5%' class='text-center'><button class='btn shadow-none d-flex align-items-baseline' type='submit' name='submit-add-collec-" . $figure['id'] . "'><i class='bi bi-table h3'></i><i class='bi bi-plus-circle-fill'></i></button></td>";
                                             }
                                             if ($exists == 0) {
                                                 foreach ($myWishesArray as $myWish) {
@@ -157,7 +157,7 @@ include("header.php");
                                                     }
                                                 }
                                                 if ($exists == 0) {
-                                                    $unexistsWish = "<td width='5%' class='text-center'><button class='btn shadow-none' type='submit' name='submit-add-wish-" . $figure['id'] . "'><i class='bi bi-heart h3'></i></button></td>";
+                                                    $unexistsWish = "<td width='5%' class='text-center'><button class='btn shadow-none d-flex align-items-baseline' type='submit' name='submit-add-wish-" . $figure['id'] . "'><i class='bi bi-heart h3'></i><i class='bi bi-plus-circle-fill'></i></button></td>";
                                                 }
                                             }
                                             if (!empty($existCollec)) {

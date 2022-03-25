@@ -35,7 +35,7 @@ include("header.php");
                         <th>Série</th>
                     </tr>
                     <tr>
-                        <td><?= $figureDetailsArray['serie'] ?></td>
+                        <td><?= $figureDetailsArray['serie'] ?? "Non renseigné" ?></td>
                     </tr>
                     <tr>
                         <th>Personnage</th>

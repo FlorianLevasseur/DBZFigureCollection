@@ -57,18 +57,17 @@ include("header.php");
         </thead>
         <tbody>
           <tr>
-            <th>07/10/2021</th>
-            <td><a class="actu" href="https://www.db-z.com/zarbon-se-devoile-dans-la-gamme-shfiguarts/" target="_blank">
-                Zarbon se dévoile dans la gamme SHFiguarts</a></td>
+            <th>24/02/2022</th>
+            <td><a class="actu" href="https://www.db-z.com/shfiguarts-gohan-tenue-saiyen-sannonce-en-images/" target="_blank">
+                SHFiguarts : Gohan (tenue Saiyen)</a></td>
           </tr>
           <tr>
-            <th>19/09/2021</th>
-            <td><a class="actu" href="https://www.db-z.com/dodoria-debarque-dans-la-gamme-shfiguarts/" target="_blank">Dodoria débarque dans la gamme SHFiguarts !</a></td>
+            <th>24/02/2022</th>
+            <td><a class="actu" href="https://www.db-z.com/cell-premiere-forme-sinvite-dans-la-gamme-shfiguarts/" target="_blank">SHFiguarts Cell (première forme)</a></td>
           </tr>
           <tr>
-            <th>02/09/2021</th>
-            <td><a class="actu" href="  https://www.db-z.com/shfiguarts-freezer-4eme-forme/" target="_blank">SHFiguarts
-                Freezer (4ème forme)</a></td>
+            <th>07/02/2022</th>
+            <td><a class="actu" href="https://www.db-z.com/c19-c20-ichiban-kuji-dragon-ball-la-terreur-des-cyborgs/" target="_blank">C-19 et C-20 rejoignent la Ichiban Kuji</a></td>
           </tr>
         </tbody>
       </table>
@@ -83,21 +82,49 @@ include("header.php");
         </thead>
         <tbody>
           <tr>
-            <th>30/10/2021</th>
-            <td><a class="upgrade" href="#upgradeModal3" data-bs-toggle="modal" data-bs-target="#upgradeModal3">Placement des éléments de la page d'accueil</a></td>
+            <th>25/02/2022</th>
+            <td><a class="upgrade" href="#upgradeModal3" data-bs-toggle="modal" data-bs-target="#upgradeModal3">Ajout du tri et du choix de visualisation</a></td>
             <div class="modal fade" id="upgradeModal3" tabindex="-1" aria-labelledby="upgradeModalLabel3" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <p class="modal-title m-auto h5" id="upgradeModalLabel3">Placement des éléments de la page
-                      d'accueil</p>
+                    <p class="modal-title m-auto h5" id="upgradeModalLabel3">Ajout du tri et du choix de visualisation</p>
                   </div>
                   <div class="modal-body">
-                    <ul class="m-0">
-                      <li>Nouveau background</li>
-                      <li>Choix du container pour la mise en page</li>
-                      <li>Mise en place du carousel</li>
-                      <li>Arrivée des tableaux Actualités et Mises à jour</li>
+                    <p>Possibilité de tri des figurines par :</p>
+                    <ul>
+                      <li>Date de mise en ligne</li>
+                      <li>Nom Complet</li>
+                      <li>Personnage</li>
+                      <li>Forme</li>
+                      <li>Taille</li>
+                      <li>Date de sortie</li>
+                    </ul>
+                    <p>Choix de l'affichage des figurines en liste ou en grille.</p>
+                  </div>
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <th>24/02/2022</th>
+            <td><a class="upgrade" href="#upgradeModal2" data-bs-toggle="modal" data-bs-target="#upgradeModal2">Ajout de nouvelles possibilités de recherche</a></td>
+            <div class="modal fade" id="upgradeModal2" tabindex="-1" aria-labelledby="upgradeModalLabel2" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <p class="modal-title m-auto h5" id="upgradeModalLabel2">Ajout de nouvelles possibilités de recherche</p>
+                  </div>
+                  <div class="modal-body">
+                    <p>La recherche ne pouvait auparavant être effectuée que par Personnage.</p>
+                    <p>Il est maintenant possible d'effectuer également une recherche par :</p>
+                    <ul>
+                      <li>Série</li>
+                      <li>Date de Sortie</li>
+                      <li>Taille</li>
                     </ul>
                   </div>
                   <div class="modal-footer justify-content-center">
@@ -108,37 +135,18 @@ include("header.php");
             </div>
           </tr>
           <tr>
-            <th>29/10/2021</th>
-            <td><a class="upgrade" href="#upgradeModal2" data-bs-toggle="modal" data-bs-target="#upgradeModal2">Reprise à zéro du site</a></td>
-            <div class="modal fade" id="upgradeModal2" tabindex="-1" aria-labelledby="upgradeModalLabel2" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <p class="modal-title m-auto h5" id="upgradeModalLabel2">Reprise à zéro du site</p>
-                  </div>
-                  <div class="modal-body text-center">
-                    <p>Bon, on va pas se mentir, c'était quand même mal barré cette histoire...</p>
-                    <p class="mb-0">Donc on reprend tout depuis le début histoire que ça ressemble quand même à
-                      quelque chose !</p>
-                  </div>
-                  <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </tr>
-          <tr>
-            <th>22/10/2021</th>
-            <td><a class="upgrade" href="#upgradeModal1" data-bs-toggle="modal" data-bs-target="#upgradeModal1">Création du 1er index.html</a></td>
+            <th>20/02/2022</th>
+            <td><a class="upgrade" href="#upgradeModal1" data-bs-toggle="modal" data-bs-target="#upgradeModal1">Mise en fonction de la barre de recherche</a></td>
             <div class="modal fade" id="upgradeModal1" tabindex="-1" aria-labelledby="upgradeModalLabel1" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <p class="modal-title m-auto h5" id="upgradeModalLabel1">Création du 1er index.html</p>
+                    <p class="modal-title m-auto h5" id="upgradeModalLabel1">Mise en fonction de la barre de recherche</p>
                   </div>
                   <div class="modal-body text-center">
-                    <p class="mb-0">Youhouuuuu !!!!! C'est partiiiiii !!!!!!!</p>
+                    <p>La barre de recherche est à présent fonctionnelle.</p>
+                    <p>Elle permet de faire une recherche via n'importe quel mot appartenant au Nom Complet d'une figurine.</p>
+                    <p>Vous pouvez tapez plusieurs mots même si ceux-ci ne se suivent pas dans le nom de la figurine.</p>
                   </div>
                   <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>

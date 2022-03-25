@@ -47,7 +47,8 @@
     "3296580262472": "1056",
     "3296580259847": "1000",
     "4983164171013": "1708",
-    "3296580336333": "719"
+    "3296580336333": "719",
+    "4573102601445": "1831"
   }
   document.getElementById("quaggaStart").addEventListener("click", () => {
     Quagga.init({
@@ -84,6 +85,11 @@
   document.getElementById("quaggaStop").addEventListener("click", () => {
     Quagga.stop();
   })
+</script>
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
 </script>
 </body>
 
