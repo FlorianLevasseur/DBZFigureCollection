@@ -100,6 +100,10 @@ require_once "../controllers/headerController.php";
                         <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], "about") ? "active fw-bold" : '' ?>" href="about">A PROPOS</a>
                     </li>
                 </ul>
+                <div class="d-lg-none d-block mt-3">
+                    <input type="text" list="resMobile" class="form-control shadow-none border" name="nameMobile" id="nameMobile" autocomplete="off" onkeyup="getdataMobile();" placeholder="Rechercher une figurine">
+                    <div id="resMobile" class="bg-white text-truncate"></div>
+                </div>
             </div>
         </div>
     </nav>

@@ -41,6 +41,25 @@
     }
   }
 </script>
+<script type="text/javascript">
+  function getdataMobile() {
+    var name = $('#nameMobile').val();
+    if (name) {
+      $.ajax({
+        type: 'post',
+        url: './getdata.php',
+        data: {
+          name: name,
+        },
+        success: function(response) {
+          $('#resMobile').html(response);
+        }
+      });
+    } else {
+      $('#resMobile').html("");
+    }
+  }
+</script>
 <script type="text/javascript" src="../assets/js/quagga.min.js"></script>
 <script type="text/javascript">
   var arrayFigure = {
